@@ -37,7 +37,7 @@ nav {
   top: 0;
   min-height: 4rem;
   align-items: center;
-  padding: 0 5rem;
+  padding: 0 3rem;
 }
 
 ul {
@@ -83,8 +83,12 @@ ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  left: 1rem;
+  left: 3rem;
   bottom: 1rem;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 5px;
+  border-radius: 2px;
 }
 
 .backdrop-text h3 {

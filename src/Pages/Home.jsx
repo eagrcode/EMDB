@@ -5,8 +5,10 @@ import requests from "../requests";
 import { Hero, MovieRows } from "../Components";
 
 function Home() {
-  const [trending, settrending] = useState([]);
+  const [trending, setTrending] = useState([]);
   const [topRated, setTopRated] = useState([]);
+  const [upcoming, setUpcoming] = useState([]);
+  const [latest, setLatest] = useState([]);
 
   // FETCH TRENDING //
   useEffect(() => {
@@ -19,7 +21,7 @@ function Home() {
       await axios
         .request(options)
         .then(function (response) {
-          settrending(response.data.results);
+          setTrending(response.data.results);
           console.log(response.data.results);
         })
         .catch(function (error) {
@@ -52,10 +54,56 @@ function Home() {
     topRatedData();
   }, []);
 
+  // FETCH UPCOMING //
+  useEffect(() => {
+    const upcomingData = async () => {
+      const options = {
+        method: "GET",
+        url: requests.fetchUpcoming,
+      };
+
+      await axios
+        .request(options)
+        .then(function (response) {
+          setUpcoming(response.data.results);
+          console.log(response.data.results);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    };
+
+    upcomingData();
+  }, []);
+
+  // FETCH LATEST //
+  useEffect(() => {
+    const latestData = async () => {
+      const options = {
+        method: "GET",
+        url: requests.fetchLatest,
+      };
+
+      await axios
+        .request(options)
+        .then(function (response) {
+          setLatest(response.data.results);
+          console.log(response.data.results);
+        })
+        .catch(function (error) {
+          console.error(error);
+        });
+    };
+
+    latestData();
+  }, []);
+
+  console.log(latest);
+
   return (
     <>
       <Hero trending={trending} />
-      <MovieRows topRated={topRated} />
+      <MovieRows topRated={topRated} upcoming={upcoming} latest={latest} />
     </>
   );
 }
