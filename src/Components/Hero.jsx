@@ -9,17 +9,12 @@ function Hero({ trending }) {
   const path = "https://image.tmdb.org/t/p/w1280";
 
   const title = trending[currentSlide]?.title;
-  const info = trending[currentSlide]?.overview;
-  const rating = trending[currentSlide]?.vote_average;
-
-  console.log(currentSlide);
-  console.log(trending.length);
 
   useEffect(() => {
     setInterval(() => {
       setCurrentSlide(currentSlide + 1);
     }, 5000);
-  }, []);
+  }, [currentSlide]);
 
   // const movieDot = trending.map((movie) => (
   //   <MovieDot key={movie.id} id={movie.id} currentSlide={currentSlide} />
