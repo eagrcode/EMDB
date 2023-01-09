@@ -7,5 +7,8 @@ const requests = {
   fetchTopRated: `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&page=1`,
   fetchPopularTV: `https://api.themoviedb.org/3/tv/popular?api_key=${API_KEY}&page=1`,
   fetchTopRatedTV: `https://api.themoviedb.org/3/tv/top_rated?api_key=${API_KEY}&page=1`,
+  fetchMovies1: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=1`,
+  fetchMovies2: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=2`,
+  fetchMovies3: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=3`,
 };
 export default requests;
