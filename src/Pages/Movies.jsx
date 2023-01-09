@@ -75,11 +75,16 @@ function Movies() {
   }
 
   return (
-    <div className="movie-grid">
-      {page1}
-      {page2}
-      {page3}
-    </div>
+    <>
+      <div id="movie-grid-container">
+        <h1 id="movie-header">Movies</h1>
+        <div className="movie-grid">
+          {page1}
+          {page2}
+          {page3}
+        </div>
+      </div>
+    </>
   );
 }
 
