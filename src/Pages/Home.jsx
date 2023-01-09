@@ -1,36 +1,37 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import requests from "../requests";
+import { useQuery } from "@tanstack/react-query";
 
 import { Hero, MovieRows } from "../Components";
 
 function Home() {
-  const [trending, setTrending] = useState([]);
+  // const [trending, setTrending] = useState([]);
   const [topRated, setTopRated] = useState([]);
   const [upcoming, setUpcoming] = useState([]);
   const [latest, setLatest] = useState([]);
 
   // FETCH TRENDING //
-  useEffect(() => {
-    const trendingData = async () => {
-      const options = {
-        method: "GET",
-        url: requests.fetchTrending,
-      };
+  // useEffect(() => {
+  //   const trendingData = async () => {
+  //     const options = {
+  //       method: "GET",
+  //       url: requests.fetchTrending,
+  //     };
 
-      await axios
-        .request(options)
-        .then(function (response) {
-          setTrending(response.data.results);
-          console.log(response.data.results);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
+  //     await axios
+  //       .request(options)
+  //       .then(function (response) {
+  //         setTrending(response.data.results);
+  //         console.log(response.data.results);
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //   };
 
-    trendingData();
-  }, []);
+  //   trendingData();
+  // }, []);
 
   // FETCH TOP RATED //
   useEffect(() => {
@@ -44,7 +45,7 @@ function Home() {
         .request(options)
         .then(function (response) {
           setTopRated(response.data.results);
-          console.log(response.data.results);
+          // console.log(response.data.results);
         })
         .catch(function (error) {
           console.error(error);
@@ -66,7 +67,7 @@ function Home() {
         .request(options)
         .then(function (response) {
           setUpcoming(response.data.results);
-          console.log(response.data.results);
+          // console.log(response.data.results);
         })
         .catch(function (error) {
           console.error(error);
@@ -88,7 +89,7 @@ function Home() {
         .request(options)
         .then(function (response) {
           setLatest(response.data.results);
-          console.log(response.data.results);
+          // console.log(response.data.results);
         })
         .catch(function (error) {
           console.error(error);
@@ -98,11 +99,9 @@ function Home() {
     latestData();
   }, []);
 
-  console.log(latest);
-
   return (
     <>
-      <Hero trending={trending} />
+      <Hero />
       <MovieRows topRated={topRated} upcoming={upcoming} latest={latest} />
     </>
   );
