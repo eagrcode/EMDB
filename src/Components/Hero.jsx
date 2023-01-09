@@ -34,7 +34,7 @@ function Hero() {
       if (currentSlide < trending?.length - 1) {
         setCurrentSlide((prev) => prev + 1);
       } else setCurrentSlide(0);
-    }, 1000);
+    }, 3000);
     return () => clearInterval(startSlides);
   }, [trending, currentSlide]);
 

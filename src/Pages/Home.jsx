@@ -11,93 +11,71 @@ function Home() {
   const [upcoming, setUpcoming] = useState([]);
   const [latest, setLatest] = useState([]);
 
-  // FETCH TRENDING //
+  // // FETCH TOP RATED //
   // useEffect(() => {
-  //   const trendingData = async () => {
+  //   const topRatedData = async () => {
   //     const options = {
   //       method: "GET",
-  //       url: requests.fetchTrending,
+  //       url: requests.fetchTopRated,
   //     };
 
   //     await axios
   //       .request(options)
   //       .then(function (response) {
-  //         setTrending(response.data.results);
-  //         console.log(response.data.results);
+  //         setTopRated(response.data.results);
+  //         // console.log(response.data.results);
   //       })
   //       .catch(function (error) {
   //         console.error(error);
   //       });
   //   };
 
-  //   trendingData();
+  //   topRatedData();
   // }, []);
 
-  // FETCH TOP RATED //
-  useEffect(() => {
-    const topRatedData = async () => {
-      const options = {
-        method: "GET",
-        url: requests.fetchTopRated,
-      };
+  // // FETCH UPCOMING //
+  // useEffect(() => {
+  //   const upcomingData = async () => {
+  //     const options = {
+  //       method: "GET",
+  //       url: requests.fetchUpcoming,
+  //     };
 
-      await axios
-        .request(options)
-        .then(function (response) {
-          setTopRated(response.data.results);
-          // console.log(response.data.results);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
+  //     await axios
+  //       .request(options)
+  //       .then(function (response) {
+  //         setUpcoming(response.data.results);
+  //         // console.log(response.data.results);
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //   };
 
-    topRatedData();
-  }, []);
+  //   upcomingData();
+  // }, []);
 
-  // FETCH UPCOMING //
-  useEffect(() => {
-    const upcomingData = async () => {
-      const options = {
-        method: "GET",
-        url: requests.fetchUpcoming,
-      };
+  // // FETCH LATEST //
+  // useEffect(() => {
+  //   const latestData = async () => {
+  //     const options = {
+  //       method: "GET",
+  //       url: requests.fetchLatest,
+  //     };
 
-      await axios
-        .request(options)
-        .then(function (response) {
-          setUpcoming(response.data.results);
-          // console.log(response.data.results);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
+  //     await axios
+  //       .request(options)
+  //       .then(function (response) {
+  //         setLatest(response.data.results);
+  //         // console.log(response.data.results);
+  //       })
+  //       .catch(function (error) {
+  //         console.error(error);
+  //       });
+  //   };
 
-    upcomingData();
-  }, []);
-
-  // FETCH LATEST //
-  useEffect(() => {
-    const latestData = async () => {
-      const options = {
-        method: "GET",
-        url: requests.fetchLatest,
-      };
-
-      await axios
-        .request(options)
-        .then(function (response) {
-          setLatest(response.data.results);
-          // console.log(response.data.results);
-        })
-        .catch(function (error) {
-          console.error(error);
-        });
-    };
-
-    latestData();
-  }, []);
+  //   latestData();
+  // }, []);
 
   return (
     <>

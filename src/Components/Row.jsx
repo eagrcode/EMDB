@@ -1,7 +1,7 @@
 import { MovieCard } from "./index";
 
 function Row({ data, title }) {
-  const movieRow = data.map((movie) => (
+  const movieRow = data?.map((movie) => (
     <MovieCard
       key={movie.id}
       id={movie.id}
