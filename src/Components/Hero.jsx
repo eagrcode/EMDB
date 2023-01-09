@@ -34,7 +34,7 @@ function Hero() {
       if (currentSlide < trending?.length - 1) {
         setCurrentSlide((prev) => prev + 1);
       } else setCurrentSlide(0);
-    }, 3000);
+    }, 5000);
     return () => clearInterval(startSlides);
   }, [trending, currentSlide]);
 
@@ -60,11 +60,16 @@ function Hero() {
   return (
     <header id="hero-section">
       <div
-        className="hero-container"
+        className="hero-container hero-container:before"
         style={{
           backgroundImage: `url("${path}${trending[currentSlide]?.backdrop_path}")`,
         }}
-      ></div>
+      >
+        <div className="backdrop-text">
+          <h3>{trending[currentSlide]?.title}</h3>
+          <p>{trending[currentSlide]?.overview}</p>
+        </div>
+      </div>
     </header>
   );
 }
