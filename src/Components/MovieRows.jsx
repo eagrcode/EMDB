@@ -1,7 +1,12 @@
-import { Row } from "./index";
+// Library imports
 import axios from "axios";
+import { useQuery } from "@tanstack/react-query";
+
+// Request imports
 import requests from "../requests";
-import { useQuery, useQueries } from "@tanstack/react-query";
+
+// Component imports
+import { Row } from "./index";
 
 function MovieRows() {
   // FETCH TOP RATED
@@ -31,12 +36,32 @@ function MovieRows() {
     return axios.get(requests.fetchLatest).then((res) => res.data.results);
   });
 
+  // FETCH POPULAR TV
+  const {
+    data: popularTV,
+    isLoading: loadingPopularTV,
+    isError: errorPopularTV,
+  } = useQuery(["popularTV"], () => {
+    return axios.get(requests.fetchPopularTV).then((res) => res.data.results);
+  });
+
+  // FETCH TOP RATED TV
+  const {
+    data: topRatedTV,
+    isLoading: loadingTopRatedTV,
+    isError: errorTopRatedTV,
+  } = useQuery(["topRatedTV"], () => {
+    return axios.get(requests.fetchTopRatedTV).then((res) => res.data.results);
+  });
+
   if (loadingTopRated || loadingUpcoming || loadingLatest) {
     return (
       <>
-        <Row title={"Classics"} />
-        <Row title={"Upcoming"} />
-        <Row title={"Latest"} />
+        <Row title={"Loading..."} />
+        <Row title={"Loading..."} />
+        <Row title={"Loading..."} />
+        <Row title={"Loading..."} />
+        <Row title={"Loading..."} />
       </>
     );
   }
@@ -44,9 +69,11 @@ function MovieRows() {
   if (errorTopRated || errorUpcoming || errorLatest) {
     return (
       <>
-        <Row title={"Classics"} />
-        <Row title={"Upcoming"} />
-        <Row title={"Latest"} />
+        <Row title={"Error"} />
+        <Row title={"Error"} />
+        <Row title={"Error"} />
+        <Row title={"Error"} />
+        <Row title={"Error"} />
       </>
     );
   }
@@ -56,6 +83,8 @@ function MovieRows() {
       <Row data={topRated} title={"Classics"} />
       <Row data={upcoming} title={"Upcoming"} />
       <Row data={latest} title={"Latest"} />
+      <Row data={popularTV} title={"Popular TV"} />
+      <Row data={topRatedTV} title={"Top Rated TV"} />
     </>
   );
 }
