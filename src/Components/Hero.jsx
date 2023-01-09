@@ -59,13 +59,12 @@ function Hero() {
   // Success screen
   return (
     <header id="hero-section">
-      <div className="hero-container">
-        <img
-          id="backdrop"
-          src={`${path}${trending[currentSlide]?.backdrop_path}`}
-          alt="movie-poster"
-        />
-      </div>
+      <div
+        className="hero-container"
+        style={{
+          backgroundImage: `url("${path}${trending[currentSlide]?.backdrop_path}")`,
+        }}
+      ></div>
     </header>
   );
 }

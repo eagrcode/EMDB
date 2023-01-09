@@ -1,4 +1,8 @@
+/* font imports */
+
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700;1,900&display=swap");
+
+/* color variables */
 
 /* GLOBAL STYLES */
 
@@ -38,6 +42,7 @@ nav {
   min-height: 4rem;
   align-items: center;
   padding: 0 3rem;
+  z-index: 999;
 }
 
 ul {
@@ -54,6 +59,12 @@ ul {
 .nav-link {
   font-size: 0.9rem;
   font-weight: bold;
+  color: rgb(200, 200, 200);
+  text-decoration: none;
+}
+
+.nav-link:hover {
+  color: white;
 }
 
 /* Hero */
@@ -67,15 +78,12 @@ ul {
 .hero-container {
   position: relative;
   width: 100%;
-  height: 70vh;
+  height: 85vh;
   box-shadow: rgba(0, 0, 0, 0.5) 0px 10px 15px 0px;
   cursor: pointer;
-}
-
-#backdrop {
-  height: 100%;
-  object-fit: cover;
-  object-position: top;
+  background-position: center top;
+  background-size: cover;
+  margin: 0 3rem;
 }
 
 .backdrop-text {
@@ -142,6 +150,7 @@ ul {
   gap: 1rem;
   flex-wrap: nowrap;
   overflow-x: auto;
+  overflow-y: hidden;
 }
 
 .movie-row-inner::-webkit-scrollbar {
@@ -152,15 +161,10 @@ ul {
   flex: 0 0 auto;
   width: 150px;
   border-radius: 5px;
-
   cursor: pointer;
   transition: all 0.1s;
 }
 
-/* .movie-card:hover {
-  transform: scale(1.5);
-} */
-
 #movie-card-img {
-  box-shadow: rgba(0, 0, 0, 0.5) 1px 10px 0px 0px;
+  height: 100%;
 }
