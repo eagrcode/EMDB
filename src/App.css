@@ -58,6 +58,7 @@ ul {
 
 #logo {
   font-size: 3rem;
+  color: white;
 }
 
 .nav-link {
@@ -88,8 +89,28 @@ ul {
   cursor: pointer;
   background-position: center top;
   background-size: cover;
-  margin: 0 3rem;
   border-radius: 3px;
+}
+
+#hero-prev {
+  color: rgb(200, 200, 200, 0);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#hero-next {
+  color: rgb(200, 200, 200, 0);
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+#hero-prev:hover,
+#hero-next:hover {
+  color: rgb(255, 255, 255);
 }
 
 .backdrop-text {

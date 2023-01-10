@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import requests from "../requests";
 import { useQuery } from "@tanstack/react-query";
+import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -59,6 +60,9 @@ function Hero() {
   // Success screen
   return (
     <header id="hero-section">
+      <button id="hero-prev">
+        <FaAngleLeft size={50} />
+      </button>
       <div
         className="hero-container hero-container:before"
         style={{
@@ -70,6 +74,9 @@ function Hero() {
           <p>{trending[currentSlide]?.overview}</p>
         </div>
       </div>
+      <button id="hero-next">
+        <FaAngleRight size={50} />
+      </button>
     </header>
   );
 }
