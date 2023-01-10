@@ -1,3 +1,5 @@
+import ScrollContainer from "react-indiana-drag-scroll";
+
 import { MovieCard } from "./index";
 
 function Row({ data, title }) {
@@ -14,7 +16,9 @@ function Row({ data, title }) {
   return (
     <div className="movie-row">
       <h3>{title}</h3>
-      <div className="movie-row-inner">{movieRow}</div>
+      <ScrollContainer vertical={false} className="movie-row-inner">
+        {movieRow}
+      </ScrollContainer>
     </div>
   );
 }
