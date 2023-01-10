@@ -39,6 +39,24 @@ function Hero() {
     return () => clearInterval(startSlides);
   }, [trending, currentSlide]);
 
+  // To previous slide
+  const toPrevSlide = () => {
+    if (currentSlide - 1 < 0) {
+      setCurrentSlide(trending?.length - 1);
+    } else {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  };
+
+  // To next slide
+  const toNextSlide = () => {
+    if (currentSlide < trending?.length - 1) {
+      setCurrentSlide((prev) => prev + 1);
+    } else {
+      setCurrentSlide(0);
+    }
+  };
+
   // Loading screen
   if (isLoading) {
     return (
@@ -60,7 +78,7 @@ function Hero() {
   // Success screen
   return (
     <header id="hero-section">
-      <button id="hero-prev">
+      <button id="hero-prev" onClick={toPrevSlide}>
         <FaAngleLeft size={50} />
       </button>
       <div
@@ -74,7 +92,7 @@ function Hero() {
           <p>{trending[currentSlide]?.overview}</p>
         </div>
       </div>
-      <button id="hero-next">
+      <button id="hero-next" onClick={toNextSlide}>
         <FaAngleRight size={50} />
       </button>
     </header>
