@@ -36,8 +36,8 @@ p {
 }
 
 body {
-  background-color: hsl(240, 100%, 2%);
-  color: hsl(195, 40%, 85%);
+  background-color: hsl(240, 100%, 4%);
+  color: hsl(195, 40%, 90%);
 }
 
 /* COMPONENT STYLES */
@@ -119,7 +119,7 @@ ul {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), hsl(240, 100%, 2%));
+  background-image: linear-gradient(rgba(0, 0, 0, 0), hsl(240, 100%, 4%));
 }
 
 /* #hero-prev {
@@ -183,8 +183,12 @@ ul {
   font-size: 1.6rem;
   cursor: pointer;
   border: none;
-  outline: pink;
   border-radius: 5px;
+  background-color: hsla(0, 0%, 80%, 0.7);
+}
+
+.hero-btn:hover {
+  background-color: white;
 }
 
 /* .backdrop-text:hover {
@@ -214,15 +218,15 @@ ul {
 
 .movie-card {
   flex: 0 0 auto;
-
-  border-radius: 3px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: all 0.1s;
+  width: 187px;
 }
 
 #movie-card-img {
   height: 100%;
-  border-radius: 3px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 /* MOVIES PAGE STYLES */

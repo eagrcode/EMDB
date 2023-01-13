@@ -41,27 +41,27 @@ function Hero() {
       if (currentSlide < trending?.length - 1) {
         setCurrentSlide((prev) => prev + 1);
       } else setCurrentSlide(0);
-    }, 5000);
+    }, 6000);
     return () => clearInterval(startSlides);
   }, [trending, currentSlide]);
 
   // To previous slide
-  const toPrevSlide = () => {
-    if (currentSlide - 1 < 0) {
-      setCurrentSlide(trending?.length - 1);
-    } else {
-      setCurrentSlide((prev) => prev - 1);
-    }
-  };
+  // const toPrevSlide = () => {
+  //   if (currentSlide - 1 < 0) {
+  //     setCurrentSlide(trending?.length - 1);
+  //   } else {
+  //     setCurrentSlide((prev) => prev - 1);
+  //   }
+  // };
 
   // To next slide
-  const toNextSlide = () => {
-    if (currentSlide < trending?.length - 1) {
-      setCurrentSlide((prev) => prev + 1);
-    } else {
-      setCurrentSlide(0);
-    }
-  };
+  // const toNextSlide = () => {
+  //   if (currentSlide < trending?.length - 1) {
+  //     setCurrentSlide((prev) => prev + 1);
+  //   } else {
+  //     setCurrentSlide(0);
+  //   }
+  // };
 
   // Loading screen
   if (isLoading) {
@@ -100,11 +100,11 @@ function Hero() {
             <p>{trending[currentSlide]?.overview}</p>
           </div>
           <div className="btn-container">
-            <button className="hero-btn">
+            {/* <button className="hero-btn">
               Play Trailer <FaPlayCircle />
-            </button>
+            </button> */}
             <button className="hero-btn">
-              More Info <FaInfoCircle />
+              More Info <FaInfoCircle size={30} />
             </button>
           </div>
         </div>
