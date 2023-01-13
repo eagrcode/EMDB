@@ -1,5 +1,7 @@
 import { Outlet, NavLink } from "react-router-dom";
 
+import { FaSearch } from "react-icons/fa";
+
 function Navbar() {
   return (
     <>
@@ -9,18 +11,20 @@ function Navbar() {
             EMDB
           </NavLink>
           <NavLink to="/" className="nav-link">
-            HOME
+            Home
           </NavLink>
           <NavLink to="/movies" className="nav-link">
-            MOVIES
+            Movies
           </NavLink>
           <NavLink to="/series" className="nav-link">
-            SERIES
-          </NavLink>
-          <NavLink to="/new&popular" className="nav-link">
-            NEW & POPULAR
+            Series
           </NavLink>
         </ul>
+
+        <div className="nav-right">
+          <FaSearch />
+          <input typeof="submit" />
+        </div>
       </nav>
       <Outlet />
     </>

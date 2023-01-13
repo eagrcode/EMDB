@@ -28,6 +28,7 @@ function Hero() {
 
   // backdrop path
   const path = "https://image.tmdb.org/t/p/w1280";
+  const posterPath = "https://image.tmdb.org/t/p/w342";
 
   // Start slides
   useEffect(() => {
@@ -78,23 +79,27 @@ function Hero() {
   // Success screen
   return (
     <header id="hero-section">
-      <button id="hero-prev" onClick={toPrevSlide}>
-        <FaAngleLeft size={50} />
-      </button>
       <div
-        className="hero-container hero-container:before"
+        className="hero-container"
         style={{
           backgroundImage: `url("${path}${trending[currentSlide]?.backdrop_path}")`,
         }}
-      >
+      ></div>
+
+      <div className="inner-hero-container">
         <div className="backdrop-text">
           <h3>{trending[currentSlide]?.title}</h3>
           <p>{trending[currentSlide]?.overview}</p>
         </div>
+        <img src={`${posterPath}${trending[currentSlide]?.poster_path}`} />
       </div>
-      <button id="hero-next" onClick={toNextSlide}>
+
+      {/* <button id="hero-prev" onClick={toPrevSlide}>
+        <FaAngleLeft size={50} />
+      </button> */}
+      {/* <button id="hero-next" onClick={toNextSlide}>
         <FaAngleRight size={50} />
-      </button>
+      </button> */}
     </header>
   );
 }
