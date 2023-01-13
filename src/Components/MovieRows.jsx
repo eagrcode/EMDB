@@ -54,7 +54,7 @@ function MovieRows() {
     return axios.get(requests.fetchTopRatedTV).then((res) => res.data.results);
   });
 
-  const path = "https://image.tmdb.org/t/p/w342";
+  const path = "https://image.tmdb.org/t/p/w185";
 
   if (loadingTopRated || loadingUpcoming || loadingLatest) {
     return (

@@ -94,19 +94,16 @@ function Hero() {
           <div>
             <p>{trending[currentSlide]?.overview}</p>
           </div>
+          <div className="btn-container">
+            <button className="hero-btn">Play Trailer</button>
+            <button className="hero-btn">More Info</button>
+          </div>
         </div>
         <img
           id="hero-card"
           src={`${posterPath}${trending[currentSlide]?.poster_path}`}
         />
       </div>
-
-      {/* <button id="hero-prev" onClick={toPrevSlide}>
-        <FaAngleLeft size={50} />
-      </button> */}
-      {/* <button id="hero-next" onClick={toNextSlide}>
-        <FaAngleRight size={50} />
-      </button> */}
     </header>
   );
 }
