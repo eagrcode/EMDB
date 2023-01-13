@@ -88,10 +88,17 @@ function Hero() {
 
       <div className="inner-hero-container">
         <div className="backdrop-text">
-          <h3>{trending[currentSlide]?.title}</h3>
-          <p>{trending[currentSlide]?.overview}</p>
+          <div>
+            <h1>{trending[currentSlide]?.title}</h1>
+          </div>
+          <div>
+            <p>{trending[currentSlide]?.overview}</p>
+          </div>
         </div>
-        <img src={`${posterPath}${trending[currentSlide]?.poster_path}`} />
+        <img
+          id="hero-card"
+          src={`${posterPath}${trending[currentSlide]?.poster_path}`}
+        />
       </div>
 
       {/* <button id="hero-prev" onClick={toPrevSlide}>
