@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import requests from "../requests";
 import { useQuery } from "@tanstack/react-query";
-import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
+import {
+  FaAngleLeft,
+  FaAngleRight,
+  FaInfoCircle,
+  FaPlayCircle,
+} from "react-icons/fa";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -95,8 +100,12 @@ function Hero() {
             <p>{trending[currentSlide]?.overview}</p>
           </div>
           <div className="btn-container">
-            <button className="hero-btn">Play Trailer</button>
-            <button className="hero-btn">More Info</button>
+            <button className="hero-btn">
+              Play Trailer <FaPlayCircle />
+            </button>
+            <button className="hero-btn">
+              More Info <FaInfoCircle />
+            </button>
           </div>
         </div>
         <img
