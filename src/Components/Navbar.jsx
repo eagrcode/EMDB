@@ -22,8 +22,8 @@ function Navbar() {
         </ul>
 
         <div className="nav-right">
-          <FaSearch />
-          <input typeof="submit" />
+          <FaSearch size={25} />
+          <input id="nav-search" typeof="submit" />
         </div>
       </nav>
       <Outlet />

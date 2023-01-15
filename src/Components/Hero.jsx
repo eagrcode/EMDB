@@ -8,6 +8,7 @@ import {
   FaInfoCircle,
   FaPlayCircle,
 } from "react-icons/fa";
+import { Link, useParams } from "react-router-dom";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -90,7 +91,6 @@ function Hero() {
           backgroundImage: `url("${path}${trending[currentSlide]?.backdrop_path}")`,
         }}
       ></div>
-
       <div className="inner-hero-container">
         <div className="backdrop-text">
           <div>
@@ -103,9 +103,17 @@ function Hero() {
             {/* <button className="hero-btn">
               Play Trailer <FaPlayCircle />
             </button> */}
-            <button className="hero-btn">
-              More Info <FaInfoCircle size={30} />
-            </button>
+            <Link
+              className="details-link"
+              to={`/details/${trending[currentSlide]?.id}`}
+            >
+              <button
+                className="hero-btn"
+                onClick={() => console.log(trending[currentSlide]?.id)}
+              >
+                More Info <FaInfoCircle size={30} />
+              </button>
+            </Link>
           </div>
         </div>
         <img
