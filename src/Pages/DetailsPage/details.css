@@ -105,4 +105,24 @@
 #trailer-section {
   height: 100vh;
   background-color: white;
+  color: black;
+}
+
+.video-row {
+  display: flex;
+  margin: 3rem 3rem;
+  gap: 1rem;
+}
+
+.video-row-inner {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+  cursor: grab;
+}
+
+.video-row-inner::-webkit-scrollbar {
+  display: none;
 }

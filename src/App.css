@@ -226,6 +226,7 @@ ul {
   border-radius: 5px;
   cursor: pointer;
   width: 187px;
+  height: 100%;
 }
 
 #movie-card-img {

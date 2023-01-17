@@ -4,3 +4,5 @@ export { default as MovieRows } from "./MovieRows";
 export { default as Row } from "./Row";
 export { default as MovieCard } from "./MovieCard";
 export { default as MovieDot } from "./MovieDot";
+export { default as Videos } from "./Videos";
+export { default as VideoPlayer } from "./VideoPlayer";
