@@ -1,26 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
-import axios from "axios";
+import { useParams } from "react-router";
+import { useItemDetails } from "../getDetails";
 
 function Details() {
-  const {
-    data: info,
-    isLoading,
-    isError,
-  } = useQuery(
-    ["info"],
-    () => {
-      return axios
-        .get(
-          "https://api.themoviedb.org/3/movie/76600?api_key=20be784f740b6b638c906dde5b35efae&language=en-US"
-        )
-        .then((res) => res.data);
-    },
-    {
-      onSuccess: (info) => {
-        console.log(info);
-      },
-    }
-  );
+  const { id } = useParams();
+
+  const { data: info, isLoading, isError } = useItemDetails(id);
 
   if (isLoading) {
     return <h1>Loading...</h1>;

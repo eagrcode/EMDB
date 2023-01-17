@@ -3,15 +3,15 @@ import axios from "axios";
 
 const API_KEY = "20be784f740b6b638c906dde5b35efae";
 
-const fetchDetails = () => {
-  // const id = queryKey[1];
+const fetchDetails = ({ queryKey }) => {
+  const id = queryKey[1];
   return axios
     .get(
-      `https://api.themoviedb.org/3/movie/76600?api_key=20be784f740b6b638c906dde5b35efae&language=en-US`
+      `https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}&language=en-US`
     )
-    .then((res) => res.data.results);
+    .then((res) => res.data);
 };
 
-// export const useItemDetails = () => {
-//   return useQuery(["info"], fetchDetails);
-// };
+export const useItemDetails = (id) => {
+  return useQuery(["info", id], fetchDetails);
+};

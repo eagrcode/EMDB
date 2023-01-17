@@ -18,10 +18,5 @@ const requests = {
   fetchMovies1: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=1&lang=us`,
   fetchMovies2: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=2&lang=us`,
   fetchMovies3: `https://api.themoviedb.org/3/discover/movie?api_key=${API_KEY}&page=3&lang=us`,
-
-  // fetchDetails: (id) =>
-  //   axios
-  //     .get(`https://api.themoviedb.org/3/movie/${id}?api_key=${API_KEY}`)
-  //     .then((res) => res.data.results),
 };
 export default requests;

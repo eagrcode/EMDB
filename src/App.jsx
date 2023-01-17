@@ -30,7 +30,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="series" element={<Series />} />
-          <Route path="details" element={<Details />} />
+          <Route path="details/:id" element={<Details />} />
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />
