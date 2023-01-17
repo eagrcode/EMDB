@@ -2,35 +2,22 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import requests from "../requests";
 import { useQuery } from "@tanstack/react-query";
-import {
-  FaAngleLeft,
-  FaAngleRight,
-  FaInfoCircle,
-  FaPlayCircle,
-} from "react-icons/fa";
-import { Link, useParams } from "react-router-dom";
+import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
-
-  const onSuccess = (trending) => {
-    console.log("Success!", trending, trending.length);
-  };
 
   // FETCH TRENDING
   const {
     data: trending,
     isLoading,
     isError,
-  } = useQuery(
-    ["trending"],
-    () => {
-      return axios.get(requests.fetchTrending).then((res) => res.data.results);
+  } = useQuery(["trending"], requests.fetchTrending, {
+    onSuccess: (trending) => {
+      console.log(trending);
     },
-    {
-      onSuccess,
-    }
-  );
+  });
 
   // backdrop path
   const path = "https://image.tmdb.org/t/p/w1280";

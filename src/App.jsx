@@ -2,6 +2,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // Page imports
 import { Home, Movies, Series, Details } from "./Pages";
@@ -29,9 +30,10 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="series" element={<Series />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="details" element={<Details />} />
         </Route>
       </Routes>
+      <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
 }
