@@ -54,6 +54,8 @@ function MovieRows() {
     return axios.get(requests.fetchTopRatedTV).then((res) => res.data.results);
   });
 
+  const path = "https://image.tmdb.org/t/p/w185";
+
   if (loadingTopRated || loadingUpcoming || loadingLatest) {
     return (
       <>
@@ -80,11 +82,11 @@ function MovieRows() {
 
   return (
     <>
-      <Row data={topRated} title={"Classics"} />
-      <Row data={upcoming} title={"Upcoming"} />
-      <Row data={latest} title={"Latest"} />
-      <Row data={popularTV} title={"Popular TV"} />
-      <Row data={topRatedTV} title={"Top Rated TV"} />
+      <Row data={topRated} title={"Classics"} path={path} />
+      <Row data={upcoming} title={"Upcoming"} path={path} />
+      <Row data={latest} title={"Latest"} path={path} />
+      <Row data={popularTV} title={"Popular TV"} path={path} />
+      <Row data={topRatedTV} title={"Top Rated TV"} path={path} />
     </>
   );
 }
