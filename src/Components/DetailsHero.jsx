@@ -44,14 +44,14 @@ function DetailsHero() {
           <div>
             <em>{info.tagline}</em>
           </div>
-          <div>
+          <div className="info-container">
             {info.release_date} | {info.genres[0]?.name}, {info.genres[1].name},{" "}
             {info.genres[2]?.name} | {info.runtime} mins
           </div>
           <div>
             <p>{info.overview}</p>
           </div>
-          <h2>Cast</h2>
+          <h2>Top Cast</h2>
           <div className="cast-container">
             <div className="cast-item">
               <img src={`${baseURL}${credits.cast[0]?.profile_path}`} />

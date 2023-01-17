@@ -76,6 +76,13 @@
   background-color: white;
 }
 
+.info-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: max-content;
+  padding: 5px;
+  border-radius: 2px;
+}
+
 .cast-container {
   display: flex;
   gap: 1rem;
