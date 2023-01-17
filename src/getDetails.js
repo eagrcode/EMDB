@@ -13,5 +13,26 @@ const fetchDetails = ({ queryKey }) => {
 };
 
 export const useItemDetails = (id) => {
-  return useQuery(["info", id], fetchDetails);
+  return useQuery(["info", id], fetchDetails, {
+    onSuccess: (info) => {
+      console.log(info);
+    },
+  });
+};
+
+const fetchCredits = ({ queryKey }) => {
+  const id = queryKey[1];
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/credits?api_key=${API_KEY}&language=en-US`
+    )
+    .then((res) => res.data);
+};
+
+export const useCredits = (id) => {
+  return useQuery(["credits", id], fetchCredits, {
+    onSuccess: (credits) => {
+      console.log(credits);
+    },
+  });
 };
