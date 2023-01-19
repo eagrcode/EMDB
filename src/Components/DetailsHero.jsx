@@ -14,7 +14,7 @@ function DetailsHero() {
 
   // Cast image path
 
-  const baseURL = "https://image.tmdb.org/t/p/w154";
+  const baseURL = "https://image.tmdb.org/t/p/w92";
 
   // backdrop path
   const path = "https://image.tmdb.org/t/p/w1280";
@@ -32,55 +32,58 @@ function DetailsHero() {
     <header id="details-hero-section">
       <div
         className="details-hero-container"
-        style={{
-          backgroundImage: `url("${path}${info.backdrop_path}")`,
-        }}
-      ></div>
-      <div className="details-inner-hero-container">
-        <div className="backdrop-text">
-          <div>
-            <h1>{info.title}</h1>
-          </div>
-          <div>
-            <em>{info.tagline}</em>
-          </div>
-          <div className="info-container">
-            {info.release_date} | {info.genres[0]?.name}, {info.genres[1].name},{" "}
-            {info.genres[2]?.name} | {info.runtime} mins
-          </div>
-          <div>
-            <p>{info.overview}</p>
-          </div>
-          <h2>Top Cast</h2>
-          <div className="cast-container">
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[0]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[0].name}</span>
+        // style={{
+        //   backgroundImage: `url("${path}${info.backdrop_path}")`,
+        // }}
+      >
+        <img id="backdrop-img" src={`${path}${info.backdrop_path}`} />
+        <div className="details-inner-hero-container">
+          <div className="backdrop-text">
+            <div>
+              <h1>{info.title}</h1>
             </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[1]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[1].name}</span>
+            <div>
+              <em>{info.tagline}</em>
             </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[2]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[2].name}</span>
+            <div className="info-container">
+              {info.release_date} | {info.genres[0]?.name},{" "}
+              {info.genres[1].name}, {info.genres[2]?.name} | {info.runtime}{" "}
+              mins
             </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[3]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[3].name}</span>
+            <div>
+              <p>{info.overview}</p>
             </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[4]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[4].name}</span>
+            <h2>Top Cast</h2>
+            <div className="cast-container">
+              <div className="cast-item">
+                <img src={`${baseURL}${credits.cast[0]?.profile_path}`} />
+                <span className="cast-name">{credits.cast[0].name}</span>
+              </div>
+              <div className="cast-item">
+                <img src={`${baseURL}${credits.cast[1]?.profile_path}`} />
+                <span className="cast-name">{credits.cast[1].name}</span>
+              </div>
+              <div className="cast-item">
+                <img src={`${baseURL}${credits.cast[2]?.profile_path}`} />
+                <span className="cast-name">{credits.cast[2].name}</span>
+              </div>
+              <div className="cast-item">
+                <img src={`${baseURL}${credits.cast[3]?.profile_path}`} />
+                <span className="cast-name">{credits.cast[3].name}</span>
+              </div>
+              <div className="cast-item">
+                <img src={`${baseURL}${credits.cast[4]?.profile_path}`} />
+                <span className="cast-name">{credits.cast[4].name}</span>
+              </div>
             </div>
-          </div>
-          <div className="btn-container">
-            {/* <button className="hero-btn">
+            <div className="btn-container">
+              {/* <button className="hero-btn">
               Play Trailer <FaPlayCircle />
             </button> */}
+            </div>
           </div>
+          <img id="hero-card" src={`${posterPath}${info.poster_path}`} />
         </div>
-        <img id="hero-card" src={`${posterPath}${info.poster_path}`} />
       </div>
     </header>
   );
