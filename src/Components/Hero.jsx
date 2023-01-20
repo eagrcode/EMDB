@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import requests from "../requests";
 import { useQuery } from "@tanstack/react-query";
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
+import { IoChevronBack, IoChevronForward } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
 function Hero() {
@@ -34,22 +35,22 @@ function Hero() {
   }, [trending, currentSlide]);
 
   // To previous slide
-  // const toPrevSlide = () => {
-  //   if (currentSlide - 1 < 0) {
-  //     setCurrentSlide(trending?.length - 1);
-  //   } else {
-  //     setCurrentSlide((prev) => prev - 1);
-  //   }
-  // };
+  const toPrevSlide = () => {
+    if (currentSlide - 1 < 0) {
+      setCurrentSlide(trending?.length - 1);
+    } else {
+      setCurrentSlide((prev) => prev - 1);
+    }
+  };
 
   // To next slide
-  // const toNextSlide = () => {
-  //   if (currentSlide < trending?.length - 1) {
-  //     setCurrentSlide((prev) => prev + 1);
-  //   } else {
-  //     setCurrentSlide(0);
-  //   }
-  // };
+  const toNextSlide = () => {
+    if (currentSlide < trending?.length - 1) {
+      setCurrentSlide((prev) => prev + 1);
+    } else {
+      setCurrentSlide(0);
+    }
+  };
 
   // Loading screen
   if (isLoading) {
@@ -75,38 +76,42 @@ function Hero() {
       <div
         className="hero-container"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
         }}
-      ></div>
-      <div className="inner-hero-container">
-        <div className="backdrop-text">
-          <div>
-            <h1>{trending[currentSlide]?.title}</h1>
+      >
+        <button className="hero-nav-btn">
+          <IoChevronBack className="icon" size={50} onClick={toPrevSlide} />
+        </button>
+
+        <div className="hero-overlay-container">
+          <div id="hero-card">
+            <img src={`${posterPath}${trending[currentSlide]?.poster_path}`} />
           </div>
-          <div>
-            <p>{trending[currentSlide]?.overview}</p>
-          </div>
-          <div className="btn-container">
-            {/* <button className="hero-btn">
-            Play Trailer <FaPlayCircle />
-          </button> */}
-            <Link
-              className="details-link"
-              to={`/details/${trending[currentSlide]?.id}`}
-            >
-              <button
-                className="hero-btn"
-                onClick={() => console.log(trending[currentSlide]?.id)}
-              >
-                More Info <FaInfoCircle size={30} />
+          <div className="hero-text-container">
+            <div>
+              <h1>{trending[currentSlide]?.title}</h1>
+            </div>
+            <div className="btn-container">
+              <button className="hero-btn">
+                Play Trailer <FaPlayCircle />
               </button>
-            </Link>
+              <Link
+                className="details-link"
+                to={`/details/${trending[currentSlide]?.id}`}
+              >
+                <button
+                  className="hero-btn"
+                  onClick={() => console.log(trending[currentSlide]?.id)}
+                >
+                  More Info <FaInfoCircle size={30} />
+                </button>
+              </Link>
+            </div>
           </div>
         </div>
-        {/* <img
-        id="hero-card"
-        src={`${posterPath}${trending[currentSlide]?.poster_path}`}
-      /> */}
+        <button className="hero-nav-btn">
+          <IoChevronForward className="icon" size={50} onClick={toNextSlide} />
+        </button>
       </div>
     </header>
   );

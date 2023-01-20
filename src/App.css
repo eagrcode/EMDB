@@ -18,12 +18,13 @@ html {
 }
 
 /* img {
-  width: 100%;
+  
 } */
 
 h1 {
   margin: 0;
-  font-size: 3.8rem;
+  font-size: 3rem;
+  font-weight: 300;
 }
 
 h3 {
@@ -52,7 +53,7 @@ nav {
   top: 0;
   min-height: 4rem;
   align-items: center;
-  padding: 0.5rem 3rem;
+  padding: 0.5rem 5rem;
   z-index: 999;
 }
 
@@ -95,35 +96,87 @@ ul {
 #hero-section {
   display: flex;
   width: 100%;
-  justify-content: center;
-  align-items: center;
 }
 
 .hero-container {
   position: relative;
   display: flex;
+  /* padding: 0 5rem; */
   width: 100%;
-  height: 100vh;
-  opacity: 0.4;
+  height: 80vh;
+
   background-size: cover;
   background-repeat: no-repeat;
+  background-position: top;
 }
 
-/* .hero-container::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
+.hero-overlay-container {
+  display: flex;
   width: 100%;
-  height: 100%;
-} */
+  align-items: flex-end;
+  gap: 1rem;
+}
 
-/* .hero-container::after {
-  content: "";
+.hero-text-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 100%;
-  height: 100%;
-  background-image: linear-gradient(rgba(0, 0, 0, 0), hsl(240, 100%, 5%));
-} */
+  max-width: 750px;
+  gap: 1rem;
+  color: white;
+  text-shadow: 0px 0px 20px rgb(0, 0, 0);
+  font-size: 1rem;
+  margin-bottom: 3.5px;
+}
+
+#hero-card {
+  max-width: 280px;
+}
+
+#hero-card img {
+  width: 100%;
+  border-radius: 5px;
+}
+
+.btn-container {
+  display: flex;
+  gap: 1rem;
+}
+
+.hero-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 5px 10px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 5px;
+  background-color: hsla(0, 0%, 80%, 0.7);
+}
+
+.hero-btn:hover {
+  background-color: white;
+}
+
+.hero-nav-btn {
+  border: none;
+  background-color: transparent;
+  min-width: 5rem;
+  color: transparent;
+}
+
+.hero-nav-btn:hover {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.icon:hover {
+  cursor: pointer;
+  color: white;
+}
 
 /* #hero-prev {
   color: rgb(200, 200, 200, 0);
@@ -146,66 +199,12 @@ ul {
   color: rgb(255, 255, 255);
 } */
 
-#hero-card {
-  border-radius: 5px;
-}
-
-.inner-hero-container {
-  position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  max-width: 500px;
-  top: 0;
-  bottom: 0;
-
-  margin-right: 33%;
-  gap: 3rem;
-}
-
-.backdrop-text {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  color: white;
-  text-shadow: 0px 0px 20px rgb(0, 0, 0);
-  font-size: 1rem;
-  text-align: left;
-}
-
-.btn-container {
-  display: flex;
-  gap: 1rem;
-}
-
-.hero-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 5px 10px;
-  font-size: 1.6rem;
-  cursor: pointer;
-  border: none;
-  border-radius: 5px;
-  background-color: hsla(0, 0%, 80%, 0.7);
-}
-
-.hero-btn:hover {
-  background-color: white;
-}
-
-/* .backdrop-text:hover {
-  background-color: rgba(0, 0, 0, 0.7);
-} */
-
 /* MOVIE ROW */
 
 .movie-row {
   display: flex;
   flex-direction: column;
-  margin: 3rem 3rem;
+  margin: 3rem 5rem;
   gap: 1rem;
 }
 
