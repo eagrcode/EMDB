@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
+
 import requests from "../requests";
 import { useQuery } from "@tanstack/react-query";
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
@@ -29,7 +29,7 @@ function Hero() {
       if (currentSlide < trending?.length - 1) {
         setCurrentSlide((prev) => prev + 1);
       } else setCurrentSlide(0);
-    }, 6000);
+    }, 10000);
     return () => clearInterval(startSlides);
   }, [trending, currentSlide]);
 
@@ -75,7 +75,7 @@ function Hero() {
       <div
         className="hero-container"
         style={{
-          backgroundImage: `url("${path}${trending[currentSlide]?.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
         }}
       ></div>
       <div className="inner-hero-container">
@@ -88,8 +88,8 @@ function Hero() {
           </div>
           <div className="btn-container">
             {/* <button className="hero-btn">
-              Play Trailer <FaPlayCircle />
-            </button> */}
+            Play Trailer <FaPlayCircle />
+          </button> */}
             <Link
               className="details-link"
               to={`/details/${trending[currentSlide]?.id}`}
@@ -103,10 +103,10 @@ function Hero() {
             </Link>
           </div>
         </div>
-        <img
-          id="hero-card"
-          src={`${posterPath}${trending[currentSlide]?.poster_path}`}
-        />
+        {/* <img
+        id="hero-card"
+        src={`${posterPath}${trending[currentSlide]?.poster_path}`}
+      /> */}
       </div>
     </header>
   );
