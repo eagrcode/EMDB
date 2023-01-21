@@ -15,6 +15,7 @@
 html {
   font-family: "Monserrat", sans-serif;
   letter-spacing: 1.8px;
+  font-size: 100%;
 }
 
 /* img {
@@ -91,7 +92,7 @@ ul {
   display: none;
 }
 
-/* Hero */
+/* HERO */
 
 #hero-section {
   display: flex;
@@ -103,7 +104,9 @@ ul {
   display: flex;
   /* padding: 0 5rem; */
   width: 100%;
-  height: 80vh;
+  padding-top: 10rem;
+  padding-bottom: 1rem;
+  /* height: 80vh; */
 
   background-size: cover;
   background-repeat: no-repeat;
@@ -128,7 +131,6 @@ ul {
   color: white;
   text-shadow: 0px 0px 20px rgb(0, 0, 0);
   font-size: 1rem;
-  margin-bottom: 3.5px;
 }
 
 #hero-card {
@@ -137,7 +139,9 @@ ul {
 
 #hero-card img {
   width: 100%;
+  min-width: 8rem;
   border-radius: 5px;
+  display: block;
 }
 
 .btn-container {
@@ -165,7 +169,8 @@ ul {
 .hero-nav-btn {
   border: none;
   background-color: transparent;
-  min-width: 5rem;
+  min-width: 1rem;
+  width: 5rem;
   color: transparent;
 }
 
@@ -260,4 +265,33 @@ ul {
 
 .details-link {
   text-decoration: none;
+}
+
+/* MEDIA QUERIES */
+
+/* min width 1280px */
+
+@media (max-width: 1280px) {
+  h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-container {
+    background-attachment: fixed;
+  }
+
+  .hero-btn {
+    gap: 10px;
+    padding: 2px 8px;
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 760px) {
+  h1 {
+    font-size: 2rem;
+  }
+}
+
+@media (min-width: 420px) {
 }
