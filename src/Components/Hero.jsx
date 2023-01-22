@@ -77,18 +77,18 @@ function Hero() {
       <header id="hero-section">
         <motion.div
           key={trending[currentSlide].id}
-          initial={{ x: "-100%" }}
-          animate={{ x: 0 }}
-          exit={{ x: "-100%" }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 0.4 }}
           className="hero-container"
           style={{
             backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
           }}
         >
-          <button className="hero-nav-btn">
+          {/* <button className="hero-nav-btn">
             <IoChevronBack className="icon" size={50} onClick={toPrevSlide} />
-          </button>
+          </button> */}
 
           <div className="hero-overlay-container">
             <div id="hero-card">
@@ -102,7 +102,7 @@ function Hero() {
               </div>
               <div className="btn-container">
                 <button className="hero-btn">
-                  Play Trailer <FaPlayCircle size={25} />
+                  Trailer <FaPlayCircle size={20} />
                 </button>
                 <Link
                   className="details-link"
@@ -112,19 +112,19 @@ function Hero() {
                     className="hero-btn"
                     onClick={() => console.log(trending[currentSlide]?.id)}
                   >
-                    More Info <FaInfoCircle size={25} />
+                    Info <FaInfoCircle size={20} />
                   </button>
                 </Link>
               </div>
             </div>
           </div>
-          <button className="hero-nav-btn">
+          {/* <button className="hero-nav-btn">
             <IoChevronForward
               className="icon"
               size={50}
               onClick={toNextSlide}
             />
-          </button>
+          </button> */}
         </motion.div>
       </header>
     </AnimatePresence>
