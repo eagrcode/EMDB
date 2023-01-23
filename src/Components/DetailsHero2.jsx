@@ -33,8 +33,9 @@ function DetailsHero2() {
       >
         <div className="overlay-container details">
           <div className="hero-text-container details">
-            <div>
+            <div className="details-title-container">
               <h1>{info.title}</h1>
+              <span id="rating">{Math.round(info.vote_average * 10) / 10}</span>
             </div>
             <div>
               <em>{info.tagline}</em>

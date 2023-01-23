@@ -300,12 +300,18 @@ nav.is-scrolling {
   cursor: pointer;
   width: 120px;
   height: 100%;
+  padding: 5px;
 }
 
 #movie-card-img {
   height: 100%;
   width: 100%;
   border-radius: 5px;
+  transition: all 0.2s;
+}
+
+#movie-card-img:hover {
+  transform: scale(1.05);
 }
 
 /* MOVIES PAGE STYLES */

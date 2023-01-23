@@ -1,8 +1,5 @@
 /* Hero */
 
-.hero-container.details {
-}
-
 .overlay-container.details {
   display: flex;
   flex-direction: column;
@@ -13,6 +10,26 @@
 
 .hero-text-container.details {
   width: 100%;
+}
+
+.details-title-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#rating {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  border: 3px solid white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: black;
+  border-radius: 50%;
+  background-color: rgb(100, 215, 250);
 }
 
 em {
