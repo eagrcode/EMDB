@@ -9,6 +9,7 @@ import { motion, AnimatePresence, LazyMotion } from "framer-motion";
 
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
+  const [isBigScreen, setIsBigScreen] = useState(false);
 
   // FETCH TRENDING
   const {
@@ -53,6 +54,19 @@ function Hero() {
     }
   };
 
+  //Make btn icons bigger on big display
+  useEffect(() => {
+    function growIcons() {
+      if (window.innerWidth >= 1020) {
+        setIsBigScreen(!isBigScreen);
+      } else {
+        setIsBigScreen(false);
+      }
+    }
+    window.addEventListener("resize", growIcons);
+    return () => window.removeEventListener("resize", growIcons);
+  }, []);
+
   // Loading screen
   if (isLoading) {
     return (
@@ -83,7 +97,7 @@ function Hero() {
           transition={{ duration: 0.4 }}
           className="hero-container"
           style={{
-            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
+            backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
           }}
         >
           {/* <button className="hero-nav-btn">
@@ -102,7 +116,7 @@ function Hero() {
               </div>
               <div className="btn-container">
                 <button className="hero-btn">
-                  Trailer <FaPlayCircle size={18} />
+                  Trailer <FaPlayCircle size={isBigScreen ? 25 : 18} />
                 </button>
                 <Link
                   className="details-link"
@@ -112,7 +126,7 @@ function Hero() {
                     className="hero-btn"
                     onClick={() => console.log(trending[currentSlide]?.id)}
                   >
-                    Info <FaInfoCircle size={18} />
+                    Info <FaInfoCircle size={isBigScreen ? 25 : 18} />
                   </button>
                 </Link>
               </div>
