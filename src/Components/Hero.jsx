@@ -102,7 +102,7 @@ function Hero() {
               </div>
               <div className="btn-container">
                 <button className="hero-btn">
-                  Trailer <FaPlayCircle size={20} />
+                  Trailer <FaPlayCircle size={18} />
                 </button>
                 <Link
                   className="details-link"
@@ -112,7 +112,7 @@ function Hero() {
                     className="hero-btn"
                     onClick={() => console.log(trending[currentSlide]?.id)}
                   >
-                    Info <FaInfoCircle size={20} />
+                    Info <FaInfoCircle size={18} />
                   </button>
                 </Link>
               </div>

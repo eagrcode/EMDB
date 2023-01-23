@@ -24,8 +24,8 @@ html {
 
 h1 {
   margin: 0;
-  font-size: 1.5rem;
-  font-weight: 300;
+  font-size: 1.2rem;
+  font-weight: 400;
 }
 
 h3 {
@@ -68,7 +68,6 @@ nav.is-scrolling {
 }
 
 .nav-menu {
-  display: none;
   position: absolute;
   gap: 1rem;
   list-style: none;
@@ -80,11 +79,14 @@ nav.is-scrolling {
   height: 50vh;
   width: 50%;
   padding: 1rem;
+  transform: translateX(-100%);
+  transition: all 0.3s;
 }
 
 .nav-menu.active {
   display: flex;
   flex-direction: column;
+  transform: translateX(0);
 }
 
 #logo {
@@ -164,11 +166,14 @@ nav.is-scrolling {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
+  width: 100%;
 }
 
 .hero-text-container {
   position: relative;
   display: flex;
+  width: 50%;
+  max-width: 750px;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;
@@ -177,7 +182,7 @@ nav.is-scrolling {
 }
 
 #hero-card {
-  min-width: 120px;
+  width: 50%;
   max-width: 250px;
 }
 
@@ -196,7 +201,7 @@ nav.is-scrolling {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
+  gap: 5px;
   font-size: 1rem;
   cursor: pointer;
   border: none;
