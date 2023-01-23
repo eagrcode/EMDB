@@ -1,5 +1,6 @@
 import { useParams } from "react-router";
 import { useItemDetails, useCredits } from "../getDetails";
+import { CastRow } from "../Components";
 
 function DetailsHero2() {
   const { id } = useParams();
@@ -25,10 +26,9 @@ function DetailsHero2() {
   return (
     <header id="hero-section">
       <div
-        key={info.id}
         className="hero-container details"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.3), hsl(240, 100%, 5%)), url("${path}${info.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${info.backdrop_path}")`,
         }}
       >
         <div className="overlay-container details">
@@ -47,29 +47,7 @@ function DetailsHero2() {
             <div className="overview-container">
               <p>{info.overview}</p>
             </div>
-          </div>
-          <h2>Cast</h2>
-          <div className="cast-container">
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[0]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[0].name}</span>
-            </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[1]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[1].name}</span>
-            </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[2]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[2].name}</span>
-            </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[3]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[3].name}</span>
-            </div>
-            <div className="cast-item">
-              <img src={`${baseURL}${credits.cast[4]?.profile_path}`} />
-              <span className="cast-name">{credits.cast[4].name}</span>
-            </div>
+            <CastRow data={credits} path={baseURL} />
           </div>
         </div>
       </div>

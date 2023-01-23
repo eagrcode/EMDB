@@ -7,3 +7,4 @@ export { default as MovieDot } from "./MovieDot";
 export { default as Videos } from "./Videos";
 export { default as VideoPlayer } from "./VideoPlayer";
 export { default as DetailsHero2 } from "./DetailsHero2";
+export { default as CastRow } from "./CastRow";

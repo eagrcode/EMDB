@@ -1,7 +1,6 @@
 /* Hero */
 
 .hero-container.details {
-  padding: 1rem 1rem;
 }
 
 .overlay-container.details {
@@ -29,13 +28,20 @@ em {
 .cast-container {
   display: flex;
   gap: 1rem;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.cast-container::-webkit-scrollbar {
+  display: none;
 }
 
 .cast-item {
   display: flex;
   flex-direction: column;
   gap: 5px;
-  width: 50px;
+  width: 80px;
 }
 
 .cast-item img {

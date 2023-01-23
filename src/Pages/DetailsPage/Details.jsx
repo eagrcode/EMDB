@@ -25,30 +25,7 @@ function Details() {
       <DetailsHero2 />
       <section id="trailer-section">
         <h2 className="media-header">Media</h2>
-        <Videos />
-        {/* <h2>Top Cast</h2>
-        <div className="cast-container">
-          <div className="cast-item">
-            <img src={`${baseURL}${credits.cast[0]?.profile_path}`} />
-            <span className="cast-name">{credits.cast[0].name}</span>
-          </div>
-          <div className="cast-item">
-            <img src={`${baseURL}${credits.cast[1]?.profile_path}`} />
-            <span className="cast-name">{credits.cast[1].name}</span>
-          </div>
-          <div className="cast-item">
-            <img src={`${baseURL}${credits.cast[2]?.profile_path}`} />
-            <span className="cast-name">{credits.cast[2].name}</span>
-          </div>
-          <div className="cast-item">
-            <img src={`${baseURL}${credits.cast[3]?.profile_path}`} />
-            <span className="cast-name">{credits.cast[3].name}</span>
-          </div>
-          <div className="cast-item">
-            <img src={`${baseURL}${credits.cast[4]?.profile_path}`} />
-            <span className="cast-name">{credits.cast[4].name}</span>
-          </div>
-        </div> */}
+        {/* <Videos /> */}
       </section>
     </>
   );
