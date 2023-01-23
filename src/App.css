@@ -24,6 +24,11 @@ html {
 
 h1 {
   margin: 0;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+
+h2 {
   font-size: 1.2rem;
   font-weight: 400;
 }
@@ -57,7 +62,6 @@ nav {
   padding: 1rem;
   z-index: 999;
 
-  background-color: hsl(240, 100%, 5%, 0);
   transition: all 0.3s;
   border-bottom: transparent;
 }
