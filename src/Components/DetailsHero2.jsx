@@ -41,8 +41,8 @@ function DetailsHero2() {
               <em>{info.tagline}</em>
             </div>
             <div className="info-container">
-              {info.release_date} | {info.genres[0]?.name},{" "}
-              {info.genres[1].name}, {info.genres[2]?.name} | {info.runtime}{" "}
+              {info?.release_date} | {info.genres[0]?.name},{" "}
+              {info.genres[1]?.name}, {info.genres[2]?.name} | {info?.runtime}{" "}
               mins
             </div>
             <div className="overview-container">

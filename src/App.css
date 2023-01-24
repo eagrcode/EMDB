@@ -24,7 +24,7 @@ html {
 
 h1 {
   margin: 0;
-  font-size: 1.3rem;
+  font-size: 1.5rem;
   font-weight: 400;
 }
 
@@ -53,16 +53,15 @@ body {
 
 nav {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+
   position: fixed;
   height: 4rem;
   width: 100%;
   top: 0;
   align-items: center;
-  padding: 1rem;
   z-index: 999;
-
-  transition: all 0.3s;
+  transition: all 0.5s;
   border-bottom: transparent;
 }
 
@@ -71,7 +70,15 @@ nav.is-scrolling {
   border-bottom: solid 1px rgba(255, 255, 255, 0.1);
 }
 
-.nav-menu {
+.top-nav-mob {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+/* .nav-menu {
   position: absolute;
   gap: 1rem;
   list-style: none;
@@ -85,12 +92,24 @@ nav.is-scrolling {
   padding: 1rem;
   transform: translateX(-100%);
   transition: all 0.3s;
+} */
+
+.nav-menu {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  list-style: none;
+  text-align: left;
+  width: 50%;
+  font-size: 1.2rem;
+  gap: 1rem;
+  padding: 1rem;
+  transform: translateX(-100%);
+  transition: all 0.3s;
 }
 
 .nav-menu.active {
   transform: translateX(0);
-  display: flex;
-  flex-direction: column;
   background-color: hsl(240, 100%, 10%);
 }
 
@@ -223,12 +242,14 @@ nav.is-scrolling {
   align-items: center;
   justify-content: center;
   gap: 5px;
+
   font-size: 1rem;
   cursor: pointer;
   border: none;
   border-radius: 5px;
   background-color: hsla(0, 0%, 80%, 0.5);
   color: black;
+  padding: 5px;
 }
 
 .hero-btn:hover {
@@ -288,6 +309,7 @@ nav.is-scrolling {
   flex-wrap: nowrap;
   overflow-x: auto;
   overflow-y: hidden;
+  scroll-snap-type: x mandatory;
 }
 
 .movie-row-inner::-webkit-scrollbar {
@@ -301,6 +323,7 @@ nav.is-scrolling {
   width: 120px;
   height: 100%;
   padding: 5px;
+  scroll-snap-align: start;
 }
 
 #movie-card-img {
@@ -363,23 +386,16 @@ nav.is-scrolling {
   }
 
   nav {
-    padding: 0 3rem;
-    gap: 3rem;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 3rem;
   }
 
   .nav-menu {
-    position: relative;
-    display: flex;
-    align-items: center;
-
-    background-color: transparent;
-    font-size: 1.2rem;
-    top: 0;
-    left: 0;
-    height: 4rem;
-    width: 100%;
-    padding: 0;
+    flex-direction: row;
+    align-self: inherit;
     transform: translateX(0);
+    width: 100%;
   }
 
   .hero-container {

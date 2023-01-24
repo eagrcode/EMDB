@@ -45,9 +45,20 @@ function Navbar() {
     return (
       <>
         <nav className={isScrolling ? "is-scrolling" : ""}>
-          <NavLink to="/" className="nav-link" id="logo">
-            EMDB
-          </NavLink>
+          <div className="top-nav-mob">
+            <NavLink to="/" className="nav-link" id="logo">
+              EMDB
+            </NavLink>
+
+            <div
+              onClick={handleClick}
+              className={`hamburger ${isOpen ? "active" : ""}`}
+            >
+              <span className="bar"></span>
+              <span className="bar"></span>
+              <span className="bar"></span>
+            </div>
+          </div>
           <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
             <li className="nav-item" onClick={handleClick}>
               <NavLink to="/" className="nav-link">
@@ -65,28 +76,9 @@ function Navbar() {
               </NavLink>
             </li>
             <form>
-              <button type="submit">
-                <FaSearch id="search-icon" size={25} />
-              </button>
-
-              <input
-                id="search-input"
-                type="text"
-                placeholder="Search for a Movie or TV show"
-              />
+              <input id="search-input" type="text" placeholder="Search..." />
             </form>
           </ul>
-
-          <div className="nav-right">
-            <div
-              onClick={handleClick}
-              className={`hamburger ${isOpen ? "active" : ""}`}
-            >
-              <span className="bar"></span>
-              <span className="bar"></span>
-              <span className="bar"></span>
-            </div>
-          </div>
         </nav>
         <Outlet />
       </>
@@ -100,7 +92,7 @@ function Navbar() {
         <NavLink to="/" className="nav-link" id="logo">
           EMDB
         </NavLink>
-        <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
+        <ul className="nav-menu">
           <li className="nav-item" onClick={handleClick}>
             <NavLink to="/" className="nav-link">
               Home
