@@ -1,5 +1,9 @@
 /* Hero */
 
+.hero-container.details {
+  padding-bottom: 3rem;
+}
+
 .overlay-container.details {
   display: flex;
   flex-direction: column;
@@ -72,24 +76,33 @@ em {
 }
 
 #trailer-section {
-  height: 100vh;
   background-color: white;
   color: black;
+  padding: 3rem 0;
+}
+
+.media-header {
+  margin-left: 1rem;
 }
 
 .video-row {
   display: flex;
+  margin-top: 1rem;
 }
 
-.video-row-inner {
-  display: flex;
+.video-player {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+}
 
-  gap: 1rem;
+/* .video-row-inner {
+  display: flex;
   flex-wrap: nowrap;
-  overflow-x: auto;
+  overflow-x: scroll;
   overflow-y: hidden;
   cursor: grab;
-}
+  width: 100%;
+} */
 
 .video-row-inner::-webkit-scrollbar {
   display: none;

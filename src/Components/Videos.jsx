@@ -2,7 +2,17 @@ import { useVideos } from "../getVideos";
 import { useParams } from "react-router";
 
 import { VideoPlayer } from "../Components";
-import ScrollContainer from "react-indiana-drag-scroll";
+
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+
+import YouTube from "react-youtube";
 
 function Videos() {
   const { id } = useParams();
@@ -10,22 +20,39 @@ function Videos() {
   const { data: videos, isLoading, isError } = useVideos(id);
 
   if (isLoading) {
-    return;
+    return <p>Loading</p>;
   }
 
   if (isError) {
-    return;
+    return <p>Error</p>;
   }
 
-  const videosRow = videos?.map((video) => (
-    <VideoPlayer key={video.id} id={video.key} />
-  ));
+  const opts = {
+    height: "100%",
+    width: "100%",
+  };
+
+  const videosRow = videos?.map(
+    (video) =>
+      video.type === "Trailer" && (
+        <SwiperSlide width="100%" key={video.id}>
+          <YouTube videoId={video.key} opts={opts} className="video-player" />
+        </SwiperSlide>
+      )
+  );
 
   return (
     <div className="video-row">
-      <ScrollContainer vertical={false} className="video-row-inner">
+      <Swiper
+        modules={[Navigation, Pagination]}
+        slidesPerView={1}
+        navigation
+        pagination={{ clickable: true }}
+        className="swiper"
+        loop
+      >
         {videosRow}
-      </ScrollContainer>
+      </Swiper>
     </div>
   );
 }

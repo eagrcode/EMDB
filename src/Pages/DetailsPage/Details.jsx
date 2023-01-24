@@ -10,7 +10,7 @@ function Details() {
       <DetailsHero2 />
       <section id="trailer-section">
         <h2 className="media-header">Media</h2>
-        {/* <Videos /> */}
+        <Videos />
       </section>
     </>
   );

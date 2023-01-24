@@ -8,7 +8,7 @@ import { useEffect } from "react";
 function Navbar() {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
   const [isScrolling, setIsScrolling] = useState(false);
 
   // Toggle open nav menu
@@ -20,7 +20,7 @@ function Navbar() {
   useEffect(() => {
     function showHideHamburger() {
       if (window.innerWidth <= 600) {
-        setIsMobile(!isMobile);
+        setIsMobile(true);
       } else if (window.innerWidth > 600) {
         setIsMobile(false);
       }
