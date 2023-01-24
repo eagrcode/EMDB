@@ -45,7 +45,7 @@ function Navbar() {
     return (
       <>
         <nav className={isScrolling ? "is-scrolling" : ""}>
-          <div className="top-nav-mob">
+          <div className={`top-nav-mob ${isOpen ? "active" : ""}`}>
             <NavLink to="/" className="nav-link" id="logo">
               EMDB
             </NavLink>

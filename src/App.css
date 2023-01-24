@@ -77,6 +77,12 @@ nav.is-scrolling {
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  transition: all 0.3s;
+  background-color: hsl(240, 100%, 5%, 0);
+}
+
+.top-nav-mob.active {
+  background-color: hsl(240, 100%, 5%);
 }
 
 /* .nav-menu {
@@ -98,10 +104,12 @@ nav.is-scrolling {
 .nav-menu {
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
+  align-items: center;
+
   list-style: none;
   text-align: left;
-  width: 50%;
+  width: 100%;
+  min-height: 1000px;
   font-size: 1.2rem;
   gap: 1rem;
   padding: 1rem;
@@ -111,7 +119,7 @@ nav.is-scrolling {
 
 .nav-menu.active {
   transform: translateX(0);
-  background-color: hsl(240, 100%, 10%);
+  background-color: hsl(240, 100%, 5%);
 }
 
 #logo {
@@ -177,13 +185,17 @@ nav.is-scrolling {
   color: hsl(195, 40%, 100%);
 }
 
+form {
+  width: 100%;
+}
+
 #search-input {
   padding: 6px 10px;
   border: none;
   border-radius: 5px;
   outline: none;
-  width: 300px;
-  max-width: 100%;
+  width: 100%;
+
   font-size: 1rem;
 }
 

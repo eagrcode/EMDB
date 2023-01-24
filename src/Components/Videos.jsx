@@ -4,7 +4,7 @@ import { useParams } from "react-router";
 import { VideoPlayer } from "../Components";
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, Scrollbar, A11y } from "swiper";
+import { Navigation, Pagination } from "swiper";
 
 // Import Swiper styles
 import "swiper/css";
@@ -49,7 +49,7 @@ function Videos() {
         navigation
         pagination={{ clickable: true }}
         className="swiper"
-        loop
+        loop="true"
       >
         {videosRow}
       </Swiper>
