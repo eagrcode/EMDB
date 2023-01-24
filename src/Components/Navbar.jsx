@@ -21,7 +21,7 @@ function Navbar() {
     function showHideHamburger() {
       if (window.innerWidth <= 600) {
         setIsMobile(!isMobile);
-      } else {
+      } else if (window.innerWidth > 600) {
         setIsMobile(false);
       }
     }
