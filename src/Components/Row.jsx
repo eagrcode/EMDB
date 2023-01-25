@@ -15,7 +15,7 @@ function Row({ data, title, path }) {
 
   return (
     <div className="movie-row">
-      <h3>{title}</h3>
+      <h2>{title}</h2>
       <ScrollContainer vertical={false} className="movie-row-inner">
         {movieRow}
       </ScrollContainer>

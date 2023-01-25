@@ -3,6 +3,7 @@ import axios from "axios";
 
 const API_KEY = "20be784f740b6b638c906dde5b35efae";
 
+// Fetch movie details by ID
 const fetchDetails = ({ queryKey }) => {
   const id = queryKey[1];
   return axios
@@ -20,6 +21,25 @@ export const useItemDetails = (id) => {
   });
 };
 
+// Fetch movie reviews by ID
+const fetchReviews = ({ queryKey }) => {
+  const id = queryKey[1];
+  return axios
+    .get(
+      `https://api.themoviedb.org/3/movie/${id}/reviews?api_key=${API_KEY}&language=en-US`
+    )
+    .then((res) => res.data.results);
+};
+
+export const useReviews = (id) => {
+  return useQuery(["reviews", id], fetchReviews, {
+    onSuccess: (reviews) => {
+      console.log(reviews);
+    },
+  });
+};
+
+// Fetch credits/cast by movie ID
 const fetchCredits = ({ queryKey }) => {
   const id = queryKey[1];
   return axios

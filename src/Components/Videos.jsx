@@ -42,18 +42,21 @@ function Videos() {
   );
 
   return (
-    <div className="video-row">
-      <Swiper
-        modules={[Navigation, Pagination]}
-        slidesPerView={1}
-        navigation
-        pagination={{ clickable: true }}
-        className="swiper"
-        loop="true"
-      >
-        {videosRow}
-      </Swiper>
-    </div>
+    <section id="trailer-section">
+      <h2 className="media-header">Media</h2>
+      <div className="video-row">
+        <Swiper
+          modules={[Navigation, Pagination]}
+          slidesPerView={1}
+          navigation
+          pagination={{ clickable: true }}
+          className="swiper"
+          loop="true"
+        >
+          {videosRow}
+        </Swiper>
+      </div>
+    </section>
   );
 }
 
