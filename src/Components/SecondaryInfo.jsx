@@ -6,6 +6,8 @@ function SecondaryInfo() {
 
   const { data: info, isLoading, isError } = useItemDetails(id);
 
+  const path = "https://image.tmdb.org/t/p/w185";
+
   if (isLoading) {
     return;
   }
@@ -35,7 +37,9 @@ function SecondaryInfo() {
         </div>
         <div>
           <h3>Homepage</h3>
-          <a href={info.homepage}>{info.homepage}</a>
+          <a href={info.homepage} target="_blank">
+            {info.homepage}
+          </a>
         </div>
       </div>
     </section>

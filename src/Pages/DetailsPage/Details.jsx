@@ -2,7 +2,7 @@ import "../DetailsPage/details.css";
 
 import { DetailsHero2 } from "../../Components";
 
-import { Videos, Reviews, SecondaryInfo } from "../../Components";
+import { Videos, Reviews, SecondaryInfo, Similar } from "../../Components";
 
 function Details() {
   return (
@@ -11,6 +11,7 @@ function Details() {
       <Videos />
       <Reviews />
       <SecondaryInfo />
+      <Similar />
     </>
   );
 }

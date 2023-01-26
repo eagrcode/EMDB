@@ -58,36 +58,36 @@ function MovieRows() {
 
   if (loadingTopRated || loadingUpcoming || loadingLatest) {
     return (
-      <>
+      <main id="movie-rows-section">
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
-      </>
+      </main>
     );
   }
 
   if (errorTopRated || errorUpcoming || errorLatest) {
     return (
-      <>
+      <main id="movie-rows-section">
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
-      </>
+      </main>
     );
   }
 
   return (
-    <>
+    <main id="movie-rows-section">
       <Row data={topRated} title={"Classics"} path={path} />
       <Row data={upcoming} title={"Upcoming"} path={path} />
       <Row data={latest} title={"Latest"} path={path} />
       <Row data={popularTV} title={"Popular TV"} path={path} />
       <Row data={topRatedTV} title={"Top Rated TV"} path={path} />
-    </>
+    </main>
   );
 }
 
