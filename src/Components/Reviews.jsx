@@ -62,7 +62,7 @@ function Reviews() {
       )}
 
       <button onClick={toggleSeeMore} className="see-more-btn">
-        {seeMore ? "Show less" : "More reviews"}
+        {seeMore ? "Show Less" : "More Reviews"}
       </button>
     </section>
   );
