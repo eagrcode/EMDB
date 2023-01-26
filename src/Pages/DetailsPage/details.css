@@ -112,6 +112,8 @@ em {
 
 .video-player {
   width: 100%;
+  -webkit-transform: translateZ(0);
+  position: relative;
 }
 
 /* REVIEW SECTION */

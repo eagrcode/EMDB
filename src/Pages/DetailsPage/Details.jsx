@@ -8,7 +8,6 @@ function Details() {
   return (
     <>
       <DetailsHero2 />
-
       <Videos />
       <Reviews />
     </>

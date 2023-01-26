@@ -1,8 +1,6 @@
 import { useVideos } from "../getVideos";
 import { useParams } from "react-router";
 
-import { VideoPlayer } from "../Components";
-
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
 
@@ -11,6 +9,8 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "swiper/css/scrollbar";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode";
 
 import YouTube from "react-youtube";
 
@@ -48,10 +48,10 @@ function Videos() {
         <Swiper
           modules={[Navigation, Pagination]}
           slidesPerView={1}
-          navigation
+          navigation={true}
           pagination={{ clickable: true }}
+          loop={true}
           className="swiper"
-          loop="true"
         >
           {videosRow}
         </Swiper>

@@ -17,9 +17,18 @@ function Reviews() {
     return <p>Error</p>;
   }
 
+  if (reviews?.length === 0) {
+    return (
+      <section id="reviews-section">
+        <h2 className="reviews-header">Reviews</h2>
+        <p>Oops! There doesn't seem to be any reviews for this Movie yet.</p>
+      </section>
+    );
+  }
+
   return (
     <section id="reviews-section">
-      <h2 className="reviews-header">Reviews</h2>
+      <h2 className="reviews-header">Reviews {`(${reviews.length})`}</h2>
       <div className="reviews-container">
         {reviews.map((review, id) => (
           <Review
