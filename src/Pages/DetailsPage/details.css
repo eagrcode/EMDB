@@ -121,7 +121,8 @@ em {
 #reviews-section {
   background-color: hsl(195, 40%, 85%);
   color: black;
-  padding: 1rem;
+  padding: 0 1rem;
+  height: 500vh;
 }
 
 .reviews-header {
@@ -130,10 +131,13 @@ em {
 
 .reviews-container {
   display: flex;
-  flex-direction: column;
-
+  flex-direction: column-reverse;
   gap: 1rem;
 }
+
+/* .reviews-container li:not(:first-child) {
+  display: none;
+} */
 
 .review-card {
   position: relative;
@@ -187,4 +191,15 @@ em {
 
 .review-card-icon {
   cursor: pointer;
+}
+
+.see-more-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 7px;
+  border-radius: 2px;
+  margin-top: 5px;
+  color: hsl(195, 40%, 90%);
+  background-color: hsl(240, 100%, 20%);
 }

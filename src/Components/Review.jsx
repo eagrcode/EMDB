@@ -9,7 +9,7 @@ function Review({ author, content, created }) {
   }
 
   return (
-    <div className="review-card">
+    <li className="review-card">
       <div className="review-card-top">
         <h3 className="review-author">{author}</h3>
         <span className="created-tag">{created.substring(10, -1)}</span>
@@ -30,7 +30,7 @@ function Review({ author, content, created }) {
       <div className={`content-container ${isOpen ? "active" : ""}`}>
         <p className="review-content">{content}</p>
       </div>
-    </div>
+    </li>
   );
 }
 

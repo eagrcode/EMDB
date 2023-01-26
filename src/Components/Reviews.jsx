@@ -4,10 +4,18 @@ import { useReviews } from "../getDetails";
 
 import { Review } from "../Components";
 
+import { useState } from "react";
+
 function Reviews() {
   const { id } = useParams();
 
   const { data: reviews, isLoading, isError } = useReviews(id);
+
+  const [seeMore, setSeeMore] = useState(false);
+
+  function toggleSeeMore() {
+    setSeeMore(!seeMore);
+  }
 
   if (isLoading) {
     return <p>Loading</p>;
@@ -29,16 +37,33 @@ function Reviews() {
   return (
     <section id="reviews-section">
       <h2 className="reviews-header">Reviews {`(${reviews.length})`}</h2>
-      <div className="reviews-container">
-        {reviews.map((review, id) => (
-          <Review
-            key={id}
-            author={review.author}
-            content={review.content}
-            created={review.created_at}
-          />
-        ))}
-      </div>
+      {seeMore ? (
+        <ul className="reviews-container">
+          {reviews.map((review, id) => (
+            <Review
+              key={id}
+              author={review.author}
+              content={review.content}
+              created={review.created_at}
+            />
+          ))}
+        </ul>
+      ) : (
+        <ul className="reviews-container">
+          {reviews.slice(-1).map((review, id) => (
+            <Review
+              key={id}
+              author={review.author}
+              content={review.content}
+              created={review.created_at}
+            />
+          ))}
+        </ul>
+      )}
+
+      <button onClick={toggleSeeMore} className="see-more-btn">
+        {seeMore ? "Show less" : "More reviews"}
+      </button>
     </section>
   );
 }
