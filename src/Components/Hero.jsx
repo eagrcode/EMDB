@@ -89,10 +89,6 @@ function Hero() {
     <header id="hero-section">
       <div
         key={trending[currentSlide].id}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        exit={{ opacity: 0 }}
-        transition={{ duration: 0.4 }}
         className="hero-container"
         style={{
           backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
@@ -116,7 +112,7 @@ function Hero() {
               </button>
               <Link
                 className="details-link"
-                to={`/details/${trending[currentSlide]?.id}`}
+                to={`/details/movie/${trending[currentSlide]?.id}`}
               >
                 <button
                   className="hero-btn"
