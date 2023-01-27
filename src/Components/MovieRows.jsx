@@ -1,59 +1,29 @@
-// Library imports
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
-
-// Request imports
-import requests from "../requests";
+// hooks
+import { useFetchTopRated } from "../hooks/getTopRated";
+import { useFetchUpcoming } from "../hooks/getUpcoming";
+import { useFetchLatest } from "../hooks/getLatest";
+import { useFetchPopularTV } from "../hooks/getPopularTV";
+import { useFetchTopRatedTV } from "../hooks/getTopRatedTV";
 
 // Component imports
 import { Row } from "./index";
 
 function MovieRows() {
-  // FETCH TOP RATED
-  const {
-    data: topRated,
-    isLoading: loadingTopRated,
-    isError: errorTopRated,
-  } = useQuery(["topRated"], () => {
-    return axios.get(requests.fetchTopRated).then((res) => res.data.results);
-  });
-
-  // FETCH UPCOMING
-  const {
-    data: upcoming,
-    isLoading: loadingUpcoming,
-    isError: errorUpcoming,
-  } = useQuery(["upcoming"], () => {
-    return axios.get(requests.fetchUpcoming).then((res) => res.data.results);
-  });
-
-  // FETCH LATEST
-  const {
-    data: latest,
-    isLoading: loadingLatest,
-    isError: errorLatest,
-  } = useQuery(["latest"], () => {
-    return axios.get(requests.fetchLatest).then((res) => res.data.results);
-  });
-
-  // FETCH POPULAR TV
+  const { data: topRated, loadingTopRated, errorTopRated } = useFetchTopRated();
+  const { data: upcoming, loadingUpcoming, errorUpcoming } = useFetchUpcoming();
+  const { data: latest, loadingLatest, errorLatest } = useFetchLatest();
   const {
     data: popularTV,
-    isLoading: loadingPopularTV,
-    isError: errorPopularTV,
-  } = useQuery(["popularTV"], () => {
-    return axios.get(requests.fetchPopularTV).then((res) => res.data.results);
-  });
-
-  // FETCH TOP RATED TV
+    loadingPopularTV,
+    errorPopularTV,
+  } = useFetchPopularTV();
   const {
     data: topRatedTV,
-    isLoading: loadingTopRatedTV,
-    isError: errorTopRatedTV,
-  } = useQuery(["topRatedTV"], () => {
-    return axios.get(requests.fetchTopRatedTV).then((res) => res.data.results);
-  });
+    loadingTopRatedTV,
+    errorTopRatedTV,
+  } = useFetchTopRatedTV();
 
+  //
   const path = "https://image.tmdb.org/t/p/w185";
 
   if (

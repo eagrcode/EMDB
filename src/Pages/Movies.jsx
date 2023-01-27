@@ -3,20 +3,19 @@ import axios from "axios";
 import { useQuery } from "@tanstack/react-query";
 
 // Request imports
-import requests from "../requests";
 
 // Component imports
 import { MovieCard } from "../Components/index";
 
 function Movies() {
   // FETCH MOVIES 1
-  const {
-    data: movies1,
-    isLoading: loadingMovies1,
-    isError: errorMovies1,
-  } = useQuery(["movies1"], () => {
-    return axios.get(requests.fetchMovies1).then((res) => res.data.results);
-  });
+  // const {
+  //   data: movies1,
+  //   isLoading: loadingMovies1,
+  //   isError: errorMovies1,
+  // } = useQuery(["movies1"], () => {
+  //   return axios.get(requests.fetchMovies1).then((res) => res.data.results);
+  // });
 
   // FETCH MOVIES 2
   const {

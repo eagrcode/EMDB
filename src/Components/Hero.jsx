@@ -1,25 +1,30 @@
+// React imports
 import { useState, useEffect } from "react";
 
-import requests from "../requests";
-import { useQuery } from "@tanstack/react-query";
-import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
+// hooks
+import { usefetchTrending } from "../hooks/getTrending";
 
+// library imports
+import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// HERO component
 function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBigScreen, setIsBigScreen] = useState(false);
 
+  const { data: trending, isLoading, isError } = usefetchTrending();
+
   // FETCH TRENDING
-  const {
-    data: trending,
-    isLoading,
-    isError,
-  } = useQuery(["trending"], requests.fetchTrending, {
-    onSuccess: (trending) => {
-      console.log(trending);
-    },
-  });
+  // const {
+  //   data: trending,
+  //   isLoading,
+  //   isError,
+  // } = useQuery(["trending"], requests.fetchTrending, {
+  //   onSuccess: (trending) => {
+  //     console.log(trending);
+  //   },
+  // });
 
   // backdrop path
   const path = "https://image.tmdb.org/t/p/w1280";

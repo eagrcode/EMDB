@@ -1,7 +1,7 @@
 import "../DetailsPage/details.css";
 
 import { useParams } from "react-router";
-import { useItemDetails } from "../../getDetails";
+import { useItemDetails } from "../../hooks/getDetails";
 
 import {
   DetailsHero2,
