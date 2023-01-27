@@ -1,6 +1,6 @@
 import { Row } from "../Components";
 
-function Similar({ similar, isLoading, isError }) {
+function Similar({ mediaType, similar, isLoading, isError }) {
   const path = "https://image.tmdb.org/t/p/w185";
 
   if (isLoading) {
@@ -21,7 +21,7 @@ function Similar({ similar, isLoading, isError }) {
 
   return (
     <section id="similar-section">
-      <Row data={similar} title={"Similar Movies"} path={path} />
+      <Row mediaType={mediaType} data={similar} title={"Similar Movies"} path={path} />
     </section>
   );
 }

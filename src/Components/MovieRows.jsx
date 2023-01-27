@@ -12,16 +12,8 @@ function MovieRows() {
   const { data: topRated, loadingTopRated, errorTopRated } = useFetchTopRated();
   const { data: upcoming, loadingUpcoming, errorUpcoming } = useFetchUpcoming();
   const { data: latest, loadingLatest, errorLatest } = useFetchLatest();
-  const {
-    data: popularTV,
-    loadingPopularTV,
-    errorPopularTV,
-  } = useFetchPopularTV();
-  const {
-    data: topRatedTV,
-    loadingTopRatedTV,
-    errorTopRatedTV,
-  } = useFetchTopRatedTV();
+  const { data: popularTV, loadingPopularTV, errorPopularTV } = useFetchPopularTV();
+  const { data: topRatedTV, loadingTopRatedTV, errorTopRatedTV } = useFetchTopRatedTV();
 
   //
   const path = "https://image.tmdb.org/t/p/w185";
@@ -44,13 +36,7 @@ function MovieRows() {
     );
   }
 
-  if (
-    errorTopRated ||
-    errorUpcoming ||
-    errorLatest ||
-    errorTopRatedTV ||
-    errorPopularTV
-  ) {
+  if (errorTopRated || errorUpcoming || errorLatest || errorTopRatedTV || errorPopularTV) {
     return (
       <main id="movie-rows-section">
         <Row title={"Error"} />
@@ -68,12 +54,7 @@ function MovieRows() {
       <Row mediaType={"movie"} data={upcoming} title={"Upcoming"} path={path} />
       <Row mediaType={"movie"} data={latest} title={"Latest"} path={path} />
       <Row mediaType={"tv"} data={popularTV} title={"Popular TV"} path={path} />
-      <Row
-        mediaType={"tv"}
-        data={topRatedTV}
-        title={"Top Rated TV"}
-        path={path}
-      />
+      <Row mediaType={"tv"} data={topRatedTV} title={"Top Rated TV"} path={path} />
     </main>
   );
 }

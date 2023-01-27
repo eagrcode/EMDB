@@ -10,21 +10,12 @@ import { Link } from "react-router-dom";
 
 // HERO component
 function Hero() {
+  // state
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBigScreen, setIsBigScreen] = useState(false);
 
+  // fetch trending movies
   const { data: trending, isLoading, isError } = usefetchTrending();
-
-  // FETCH TRENDING
-  // const {
-  //   data: trending,
-  //   isLoading,
-  //   isError,
-  // } = useQuery(["trending"], requests.fetchTrending, {
-  //   onSuccess: (trending) => {
-  //     console.log(trending);
-  //   },
-  // });
 
   // backdrop path
   const path = "https://image.tmdb.org/t/p/w1280";
@@ -41,22 +32,22 @@ function Hero() {
   }, [trending, currentSlide]);
 
   // To previous slide
-  const toPrevSlide = () => {
-    if (currentSlide - 1 < 0) {
-      setCurrentSlide(trending?.length - 1);
-    } else {
-      setCurrentSlide((prev) => prev - 1);
-    }
-  };
+  // const toPrevSlide = () => {
+  //   if (currentSlide - 1 < 0) {
+  //     setCurrentSlide(trending?.length - 1);
+  //   } else {
+  //     setCurrentSlide((prev) => prev - 1);
+  //   }
+  // };
 
   // To next slide
-  const toNextSlide = () => {
-    if (currentSlide < trending?.length - 1) {
-      setCurrentSlide((prev) => prev + 1);
-    } else {
-      setCurrentSlide(0);
-    }
-  };
+  // const toNextSlide = () => {
+  //   if (currentSlide < trending?.length - 1) {
+  //     setCurrentSlide((prev) => prev + 1);
+  //   } else {
+  //     setCurrentSlide(0);
+  //   }
+  // };
 
   //Make btn icons bigger on big display
   useEffect(() => {
@@ -115,10 +106,7 @@ function Hero() {
               <button className="hero-btn">
                 Trailer <FaPlayCircle size={isBigScreen ? 25 : 18} />
               </button>
-              <Link
-                className="details-link"
-                to={`/details/movie/${trending[currentSlide]?.id}`}
-              >
+              <Link className="details-link" to={`/details/movie/${trending[currentSlide]?.id}`}>
                 <button
                   className="hero-btn"
                   onClick={() => console.log(trending[currentSlide]?.id)}
