@@ -2,9 +2,10 @@ import ScrollContainer from "react-indiana-drag-scroll";
 
 import { MovieCard } from "./index";
 
-function Row({ data, title, path }) {
+function Row({ data, title, path, mediaType }) {
   const movieRow = data?.map((movie) => (
     <MovieCard
+      mediaType={mediaType}
       key={movie.id}
       id={movie.id}
       title={movie.title}

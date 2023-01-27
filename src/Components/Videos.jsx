@@ -1,5 +1,5 @@
-import { useVideos } from "../getVideos";
-import { useParams } from "react-router";
+// import { useVideos } from "../getVideos";
+// import { useParams } from "react-router";
 
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
@@ -14,11 +14,7 @@ import "swiper/css/free-mode";
 
 import YouTube from "react-youtube";
 
-function Videos() {
-  const { id } = useParams();
-
-  const { data: videos, isLoading, isError } = useVideos(id);
-
+function Videos({ videos, isLoading, isError }) {
   if (isLoading) {
     return <p>Loading</p>;
   }

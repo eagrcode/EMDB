@@ -1,13 +1,4 @@
-import { useParams } from "react-router";
-import { useItemDetails } from "../getDetails";
-
-function SecondaryInfo() {
-  const { id } = useParams();
-
-  const { data: info, isLoading, isError } = useItemDetails(id);
-
-  const path = "https://image.tmdb.org/t/p/w185";
-
+function SecondaryInfo({ info, isLoading, isError }) {
   if (isLoading) {
     return;
   }

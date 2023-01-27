@@ -5,7 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 
 // Page imports
-import { Home, Movies, Series, Details } from "./Pages";
+import { Home, Movies, Series, Details, DetailsTV } from "./Pages";
 
 // Component imports
 import { Navbar } from "./Components";
@@ -30,7 +30,8 @@ function App() {
           <Route index element={<Home />} />
           <Route path="movies" element={<Movies />} />
           <Route path="series" element={<Series />} />
-          <Route path="details/:id" element={<Details />} />
+          <Route path="details/movie/:id" element={<Details type="movie" />} />
+          <Route path="details/tv/:id" element={<DetailsTV type="tv" />} />
         </Route>
       </Routes>
       <ReactQueryDevtools initialIsOpen={false} />

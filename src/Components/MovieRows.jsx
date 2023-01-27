@@ -56,7 +56,13 @@ function MovieRows() {
 
   const path = "https://image.tmdb.org/t/p/w185";
 
-  if (loadingTopRated || loadingUpcoming || loadingLatest) {
+  if (
+    loadingTopRated ||
+    loadingUpcoming ||
+    loadingLatest ||
+    loadingTopRatedTV ||
+    loadingPopularTV
+  ) {
     return (
       <main id="movie-rows-section">
         <Row title={"Loading..."} />
@@ -68,7 +74,13 @@ function MovieRows() {
     );
   }
 
-  if (errorTopRated || errorUpcoming || errorLatest) {
+  if (
+    errorTopRated ||
+    errorUpcoming ||
+    errorLatest ||
+    errorTopRatedTV ||
+    errorPopularTV
+  ) {
     return (
       <main id="movie-rows-section">
         <Row title={"Error"} />
@@ -82,11 +94,16 @@ function MovieRows() {
 
   return (
     <main id="movie-rows-section">
-      <Row data={topRated} title={"Classics"} path={path} />
-      <Row data={upcoming} title={"Upcoming"} path={path} />
-      <Row data={latest} title={"Latest"} path={path} />
-      <Row data={popularTV} title={"Popular TV"} path={path} />
-      <Row data={topRatedTV} title={"Top Rated TV"} path={path} />
+      <Row mediaType={"movie"} data={topRated} title={"Classics"} path={path} />
+      <Row mediaType={"movie"} data={upcoming} title={"Upcoming"} path={path} />
+      <Row mediaType={"movie"} data={latest} title={"Latest"} path={path} />
+      <Row mediaType={"tv"} data={popularTV} title={"Popular TV"} path={path} />
+      <Row
+        mediaType={"tv"}
+        data={topRatedTV}
+        title={"Top Rated TV"}
+        path={path}
+      />
     </main>
   );
 }

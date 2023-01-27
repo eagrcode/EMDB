@@ -1,18 +1,27 @@
-import { useSimilar } from "../getSimilar";
-import { useParams } from "react-router";
-
 import { Row } from "../Components";
 
-function Similar() {
-  const { id } = useParams();
-
-  const { data: sim } = useSimilar(id);
-
+function Similar({ similar, isLoading, isError }) {
   const path = "https://image.tmdb.org/t/p/w185";
+
+  if (isLoading) {
+    return (
+      <section id="similar-section">
+        <Row title={"Loading"} />
+      </section>
+    );
+  }
+
+  if (isError) {
+    return (
+      <section id="similar-section">
+        <Row title={"Error"} />
+      </section>
+    );
+  }
 
   return (
     <section id="similar-section">
-      <Row data={sim} title={"Similar Movies"} path={path} />
+      <Row data={similar} title={"Similar Movies"} path={path} />
     </section>
   );
 }

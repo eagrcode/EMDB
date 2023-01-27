@@ -1,16 +1,10 @@
 import { useParams } from "react-router";
 
-import { useReviews } from "../getDetails";
-
 import { Review } from "../Components";
 
 import { useState } from "react";
 
-function Reviews() {
-  const { id } = useParams();
-
-  const { data: reviews, isLoading, isError } = useReviews(id);
-
+function Reviews({ reviews, isLoading, isError }) {
   const [seeMore, setSeeMore] = useState(false);
 
   function toggleSeeMore() {

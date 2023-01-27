@@ -1,13 +1,6 @@
-import { useParams } from "react-router";
-import { useItemDetails, useCredits } from "../getDetails";
 import { CastRow } from "../Components";
 
-function DetailsHero2() {
-  const { id } = useParams();
-
-  const { data: info, isLoading, isError } = useItemDetails(id);
-  const { data: credits, isLoadingCredits, isErrorCredits } = useCredits(id);
-
+function DetailsHero2({ info, isLoading, isError }) {
   // Cast image path
   const baseURL = "https://image.tmdb.org/t/p/w92";
 
@@ -15,11 +8,11 @@ function DetailsHero2() {
   const path = "https://image.tmdb.org/t/p/w1280";
   const posterPath = "https://image.tmdb.org/t/p/w342";
 
-  if (isLoading || isLoadingCredits) {
+  if (isLoading) {
     return <h1>Loading...</h1>;
   }
 
-  if (isError || isErrorCredits) {
+  if (isError) {
     return <h1>Error</h1>;
   }
 
@@ -34,7 +27,7 @@ function DetailsHero2() {
         <div className="overlay-container details">
           <div className="hero-text-container details">
             <div className="details-title-container">
-              <h1>{info.title}</h1>
+              <h1>{info.title || info.original_name}</h1>
               <span id="rating">{Math.round(info.vote_average * 10) / 10}</span>
             </div>
             <div>
@@ -48,7 +41,7 @@ function DetailsHero2() {
             <div className="overview-container">
               <p>{info.overview}</p>
             </div>
-            <CastRow data={credits} path={baseURL} />
+            <CastRow data={info.credits.cast} path={baseURL} />
           </div>
         </div>
       </div>
