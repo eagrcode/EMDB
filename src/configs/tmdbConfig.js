@@ -1,25 +1,27 @@
 export const baseURL = "https://api.themoviedb.org/3";
 
+export const imageURL = "https://image.tmdb.org/t/p";
+
 export const posterSizes = {
-  w92: "w92",
-  w154: "w154",
-  w185: "w185",
-  w342: "w342",
-  w500: "w500",
-  w780: "w780",
-  orig: "original",
+  p92: "/w92",
+  p154: "/w154",
+  p185: "/w185",
+  p342: "/w342",
+  p500: "/w500",
+  p780: "/w780",
+  pOrig: "/original",
 };
 
 export const backdropSizes = {
-  w300: "w300",
-  w780: "w780",
-  w1280: "w1280",
-  orig: "original",
+  b300: "/w300",
+  b780: "/w780",
+  b1280: "/w1280",
+  bOrig: "/original",
 };
 
 export const profileSizes = {
-  w45: "w45",
-  w185: "w185",
-  w362: "w632",
-  orig: "original",
+  w45: "/w45",
+  w185: "/w185",
+  w362: "/w632",
+  orig: "/original",
 };

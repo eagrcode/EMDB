@@ -8,7 +8,8 @@ import { useEffect } from "react";
 function Navbar() {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
-  const [isMobile, setIsMobile] = useState(true);
+  const [isMobile, setIsMobile] = useState(false);
+  const [windowWidth, setWindowWidth] = useState(undefined);
   const [isScrolling, setIsScrolling] = useState(false);
 
   // Toggle open nav menu
@@ -18,16 +19,27 @@ function Navbar() {
 
   //Toggle Hamburger display
   useEffect(() => {
+    function windowWidth() {
+      setWindowWidth(window.innerWidth);
+    }
+
+    window.addEventListener("resize", windowWidth);
+
+    windowWidth();
+
+    return () => window.removeEventListener("resize", windowWidth);
+  }, []);
+
+  useEffect(() => {
     function showHideHamburger() {
-      if (window.innerWidth <= 600) {
+      if (windowWidth <= 600) {
         setIsMobile(true);
-      } else if (window.innerWidth > 600) {
+      } else if (windowWidth > 600) {
         setIsMobile(false);
       }
     }
-    window.addEventListener("resize", showHideHamburger);
-    return () => window.removeEventListener("resize", showHideHamburger);
-  }, []);
+    showHideHamburger();
+  }, [windowWidth]);
 
   // Set Nav bg color on scroll
   function handleScroll() {
@@ -39,9 +51,8 @@ function Navbar() {
   }
   window.addEventListener("scroll", handleScroll);
 
-  if (isMobile) {
-    // Mobile component
-
+  // Mobile component
+  if (isMobile === true) {
     return (
       <>
         <nav className={isScrolling ? "is-scrolling" : ""}>
@@ -50,10 +61,7 @@ function Navbar() {
               EMDB
             </NavLink>
 
-            <div
-              onClick={handleClick}
-              className={`hamburger ${isOpen ? "active" : ""}`}
-            >
+            <div onClick={handleClick} className={`hamburger ${isOpen ? "active" : ""}`}>
               <span className="bar"></span>
               <span className="bar"></span>
               <span className="bar"></span>
@@ -112,11 +120,7 @@ function Navbar() {
 
         <div className="nav-right">
           <form id="nav-search">
-            <input
-              id="search-input"
-              type="text"
-              placeholder="Search for a Movie or TV show"
-            />
+            <input id="search-input" type="text" placeholder="Search for a Movie or TV show" />
             <button id="nav-search-btn" type="submit">
               <FaSearch id="search-icon" size={25} />
             </button>

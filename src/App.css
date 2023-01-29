@@ -204,10 +204,6 @@ form {
 
 /* HERO */
 
-#hero-section {
-  display: flex;
-}
-
 .hero-container {
   display: flex;
   width: 100%;
@@ -229,7 +225,7 @@ form {
   position: relative;
   display: flex;
   width: 50%;
-  max-width: 750px;
+  max-width: 1000px;
   flex-direction: column;
   justify-content: center;
   gap: 1rem;

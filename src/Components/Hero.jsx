@@ -1,15 +1,25 @@
 // React imports
 import { useState, useEffect } from "react";
 
+// configs
+import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
+
 // hooks
 import { usefetchTrending } from "../hooks/getTrending";
 
 // library imports
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination } from "swiper";
 
 // component imports
 import { LoadingSpinner } from "../Components";
+
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 // HERO component
 function Hero() {
@@ -17,12 +27,12 @@ function Hero() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [isBigScreen, setIsBigScreen] = useState(false);
 
+  // config destructure
+  const { b300, b780, b1280, bOrig } = backdropSizes;
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
+
   // fetch trending movies
   const { data: trending, isLoading, isError } = usefetchTrending();
-
-  // backdrop path
-  const path = "https://image.tmdb.org/t/p/w1280";
-  const posterPath = "https://image.tmdb.org/t/p/w342";
 
   // Start slides
   useEffect(() => {
@@ -52,7 +62,7 @@ function Hero() {
   //   }
   // };
 
-  //Make btn icons bigger on big display
+  // Make btn icons bigger on big display
   useEffect(() => {
     function growIcons() {
       if (window.innerWidth >= 1020) {
@@ -88,48 +98,58 @@ function Hero() {
   // Success screen
   return (
     <header id="hero-section">
-      <div
-        key={trending[currentSlide].id}
-        className="hero-container"
-        style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${trending[currentSlide]?.backdrop_path}")`,
-        }}
+      <Swiper
+        modules={[Autoplay, Pagination]}
+        slidesPerView={1}
+        pagination={{ clickable: true }}
+        loop={true}
+        autoplay={{ delay: 8000, disableOnInteraction: false }}
+        className="swiper"
       >
-        {/* <button className="hero-nav-btn">
+        {trending.map((item) => (
+          <SwiperSlide>
+            <div
+              key={item?.id}
+              className="hero-container"
+              style={{
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
+              }}
+            >
+              {/* <button className="hero-nav-btn">
             <IoChevronBack className="icon" size={50} onClick={toPrevSlide} />
           </button> */}
 
-        <div className="hero-overlay-container">
-          <div id="hero-card">
-            <img src={`${posterPath}${trending[currentSlide]?.poster_path}`} />
-          </div>
-          <div className="hero-text-container">
-            <div>
-              <h1>{trending[currentSlide]?.title}</h1>
-            </div>
-            <div className="btn-container">
-              <button className="hero-btn">
-                Trailer <FaPlayCircle size={isBigScreen ? 25 : 18} />
-              </button>
-              <Link className="details-link" to={`/details/movie/${trending[currentSlide]?.id}`}>
-                <button
-                  className="hero-btn"
-                  onClick={() => console.log(trending[currentSlide]?.id)}
-                >
-                  Info <FaInfoCircle size={isBigScreen ? 25 : 18} />
-                </button>
-              </Link>
-            </div>
-          </div>
-        </div>
-        {/* <button className="hero-nav-btn">
+              <div className="hero-overlay-container">
+                <div id="hero-card">
+                  <img src={`${imageURL}${p342}${item?.poster_path}`} />
+                </div>
+                <div className="hero-text-container">
+                  <div>
+                    <h1>{item?.title}</h1>
+                  </div>
+                  <div className="btn-container">
+                    <button className="hero-btn">
+                      Trailer <FaPlayCircle size={isBigScreen ? 25 : 18} />
+                    </button>
+                    <Link className="details-link" to={`/details/movie/${item?.id}`}>
+                      <button className="hero-btn">
+                        Info <FaInfoCircle size={isBigScreen ? 25 : 18} />
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+              {/* <button className="hero-nav-btn">
             <IoChevronForward
               className="icon"
               size={50}
               onClick={toNextSlide}
             />
           </button> */}
-      </div>
+            </div>
+          </SwiperSlide>
+        ))}
+      </Swiper>
     </header>
   );
 }
