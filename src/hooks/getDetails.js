@@ -1,5 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
+import { baseURL } from "../configs/tmdbConfig";
 
 const API_KEY = "20be784f740b6b638c906dde5b35efae";
 
@@ -9,7 +10,7 @@ const fetchDetails = ({ queryKey }) => {
   const id = queryKey[2];
   return axios
     .get(
-      `https://api.themoviedb.org/3/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,videos,reviews,similar&language=en-US`
+      `${baseURL}/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,videos,reviews,similar&language=en-US`
     )
     .then((res) => res.data);
 };
