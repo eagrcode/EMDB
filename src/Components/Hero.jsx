@@ -8,6 +8,9 @@ import { usefetchTrending } from "../hooks/getTrending";
 import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
+// component imports
+import { LoadingSpinner } from "../Components";
+
 // HERO component
 function Hero() {
   // state
@@ -66,7 +69,9 @@ function Hero() {
   if (isLoading) {
     return (
       <header id="hero-section">
-        <div className="hero-container">Loading...</div>
+        <div className="hero-container">
+          <LoadingSpinner />
+        </div>
       </header>
     );
   }
