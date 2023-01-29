@@ -24,7 +24,7 @@ import "swiper/css/pagination";
 // HERO component
 function Hero() {
   // state
-  const [currentSlide, setCurrentSlide] = useState(0);
+  // const [currentSlide, setCurrentSlide] = useState(0);
   const [isBigScreen, setIsBigScreen] = useState(false);
 
   // config destructure
@@ -35,14 +35,14 @@ function Hero() {
   const { data: trending, isLoading, isError } = usefetchTrending();
 
   // Start slides
-  useEffect(() => {
-    const startSlides = setInterval(() => {
-      if (currentSlide < trending?.length - 1) {
-        setCurrentSlide((prev) => prev + 1);
-      } else setCurrentSlide(0);
-    }, 10000);
-    return () => clearInterval(startSlides);
-  }, [trending, currentSlide]);
+  // useEffect(() => {
+  //   const startSlides = setInterval(() => {
+  //     if (currentSlide < trending?.length - 1) {
+  //       setCurrentSlide((prev) => prev + 1);
+  //     } else setCurrentSlide(0);
+  //   }, 10000);
+  //   return () => clearInterval(startSlides);
+  // }, [trending, currentSlide]);
 
   // To previous slide
   // const toPrevSlide = () => {
