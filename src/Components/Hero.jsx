@@ -63,17 +63,17 @@ function Hero() {
   // };
 
   // Make btn icons bigger on big display
-  useEffect(() => {
-    function growIcons() {
-      if (window.innerWidth >= 1020) {
-        setIsBigScreen(!isBigScreen);
-      } else {
-        setIsBigScreen(false);
-      }
-    }
-    window.addEventListener("resize", growIcons);
-    return () => window.removeEventListener("resize", growIcons);
-  }, []);
+  // useEffect(() => {
+  //   function growIcons() {
+  //     if (window.innerWidth >= 1020) {
+  //       setIsBigScreen(!isBigScreen);
+  //     } else {
+  //       setIsBigScreen(false);
+  //     }
+  //   }
+  //   window.addEventListener("resize", growIcons);
+  //   return () => window.removeEventListener("resize", growIcons);
+  // }, [window.innerWidth]);
 
   // Loading screen
   if (isLoading) {
@@ -106,13 +106,13 @@ function Hero() {
         autoplay={{ delay: 8000, disableOnInteraction: false }}
         className="swiper"
       >
-        {trending.map((item) => (
+        {trending.map((item, index) => (
           <SwiperSlide>
             <div
-              key={item?.id}
+              key={index}
               className="hero-container"
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.2), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
               }}
             >
               {/* <button className="hero-nav-btn">
@@ -129,11 +129,11 @@ function Hero() {
                   </div>
                   <div className="btn-container">
                     <button className="hero-btn">
-                      Trailer <FaPlayCircle size={isBigScreen ? 25 : 18} />
+                      Trailer <FaPlayCircle className="play-icon" size={20} />
                     </button>
                     <Link className="details-link" to={`/details/movie/${item?.id}`}>
                       <button className="hero-btn">
-                        Info <FaInfoCircle size={isBigScreen ? 25 : 18} />
+                        Info <FaInfoCircle className="info-icon" size={20} />
                       </button>
                     </Link>
                   </div>
