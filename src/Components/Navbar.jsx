@@ -1,14 +1,26 @@
 import { Outlet, NavLink } from "react-router-dom";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+
+// configs
+import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
 import { FaSearch } from "react-icons/fa";
-import { useEffect } from "react";
+
+import { useQueryResults } from "../hooks/getSearch";
+import { MovieCard } from "../Components";
 
 function Navbar() {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
+  const [query, setQuery] = useState("");
+
+  // config destructure
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
+
+  // fetch query results
+  const { data: queryResults, isLoading, isError } = useQueryResults(query);
 
   // Toggle open nav menu
   function handleClick() {
@@ -17,13 +29,23 @@ function Navbar() {
 
   // Set Nav bg color on scroll
   function handleScroll() {
-    if (window.scrollY >= 50) {
+    if (window.scrollY >= 1) {
       setIsScrolling(true);
     } else {
       setIsScrolling(false);
     }
   }
   window.addEventListener("scroll", handleScroll);
+
+  function updateQueryValue(e) {
+    setQuery(e.target.value);
+  }
+
+  if (isOpen) {
+    document.body.style.overflow = "hidden";
+  } else {
+    document.body.style.overflow = "visible";
+  }
 
   // Mobile component
   return (
@@ -58,9 +80,23 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <form>
-            <input id="search-input" type="text" placeholder="Search..." />
-          </form>
+          <div className="search-container">
+            <input
+              onChange={updateQueryValue}
+              value={query}
+              id="search-input"
+              type="search"
+              placeholder="Search..."
+              autoComplete="off"
+            />
+            {queryResults && (
+              <ul className="query-dropdown">
+                {queryResults.map((item) => (
+                  <li>{item.title || item.name}</li>
+                ))}
+              </ul>
+            )}
+          </div>
         </div>
       </nav>
       <Outlet />
