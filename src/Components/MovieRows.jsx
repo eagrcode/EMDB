@@ -5,6 +5,9 @@ import { useFetchLatest } from "../hooks/getLatest";
 import { useFetchPopularTV } from "../hooks/getPopularTV";
 import { useFetchTopRatedTV } from "../hooks/getTopRatedTV";
 
+// configs
+import { imageURL, posterSizes } from "../configs/tmdbConfig";
+
 // Component imports
 import { Row } from "./index";
 
@@ -15,8 +18,8 @@ function MovieRows() {
   const { data: popularTV, loadingPopularTV, errorPopularTV } = useFetchPopularTV();
   const { data: topRatedTV, loadingTopRatedTV, errorTopRatedTV } = useFetchTopRatedTV();
 
-  //
-  const path = "https://image.tmdb.org/t/p/w185";
+  // config destructure
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   if (
     loadingTopRated ||
@@ -50,11 +53,41 @@ function MovieRows() {
 
   return (
     <main id="movie-rows-section">
-      <Row mediaType={"movie"} data={topRated} title={"Classics"} path={path} />
-      <Row mediaType={"movie"} data={upcoming} title={"Upcoming"} path={path} />
-      <Row mediaType={"movie"} data={latest} title={"Latest"} path={path} />
-      <Row mediaType={"tv"} data={popularTV} title={"Popular TV"} path={path} />
-      <Row mediaType={"tv"} data={topRatedTV} title={"Top Rated TV"} path={path} />
+      <Row
+        mediaType={"movie"}
+        data={topRated}
+        title={"Classics"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"movie"}
+        data={upcoming}
+        title={"Upcoming"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"movie"}
+        data={latest}
+        title={"Latest"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"tv"}
+        data={popularTV}
+        title={"Popular TV"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"tv"}
+        data={topRatedTV}
+        title={"Top Rated TV"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
     </main>
   );
 }

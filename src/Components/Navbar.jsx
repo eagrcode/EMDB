@@ -1,26 +1,14 @@
 import { Outlet, NavLink } from "react-router-dom";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
-// configs
-import { imageURL, posterSizes } from "../configs/tmdbConfig";
-
-import { FaSearch } from "react-icons/fa";
-
-import { useQueryResults } from "../hooks/getSearch";
-import { MovieCard } from "../Components";
+import { Search } from "../Components";
 
 function Navbar() {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
   const [query, setQuery] = useState("");
-
-  // config destructure
-  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
-
-  // fetch query results
-  const { data: queryResults, isLoading, isError } = useQueryResults(query);
 
   // Toggle open nav menu
   function handleClick() {
@@ -36,10 +24,6 @@ function Navbar() {
     }
   }
   window.addEventListener("scroll", handleScroll);
-
-  function updateQueryValue(e) {
-    setQuery(e.target.value);
-  }
 
   if (isOpen) {
     document.body.style.overflow = "hidden";
@@ -63,7 +47,7 @@ function Navbar() {
           </div>
         </div>
         <div className={`nav-menu ${isOpen ? "active" : ""}`}>
-          <ul>
+          <ul className="nav-list">
             <li className="nav-item" onClick={handleClick}>
               <NavLink to="/" className="nav-link">
                 Home
@@ -80,23 +64,7 @@ function Navbar() {
               </NavLink>
             </li>
           </ul>
-          <div className="search-container">
-            <input
-              onChange={updateQueryValue}
-              value={query}
-              id="search-input"
-              type="search"
-              placeholder="Search..."
-              autoComplete="off"
-            />
-            {queryResults && (
-              <ul className="query-dropdown">
-                {queryResults.map((item) => (
-                  <li>{item.title || item.name}</li>
-                ))}
-              </ul>
-            )}
-          </div>
+          <Search />
         </div>
       </nav>
       <Outlet />

@@ -13,9 +13,14 @@ const fetchQuery = ({ queryKey }) => {
 };
 
 export const useQueryResults = (searchQuery) => {
-  return useQuery(["query", searchQuery], fetchQuery, {
-    onSuccess: (query) => {
-      console.log(query);
-    },
-  });
+  return useQuery(
+    ["query", searchQuery],
+    fetchQuery,
+    { enabled: !!searchQuery },
+    {
+      onSuccess: (query) => {
+        console.log(query);
+      },
+    }
+  );
 };

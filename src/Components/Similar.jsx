@@ -1,7 +1,11 @@
 import { Row } from "../Components";
 
+// configs
+import { imageURL, posterSizes } from "../configs/tmdbConfig";
+
 function Similar({ mediaType, similar, isLoading, isError }) {
-  const path = "https://image.tmdb.org/t/p/w185";
+  // config destructure
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   if (isLoading) {
     return (
@@ -21,7 +25,13 @@ function Similar({ mediaType, similar, isLoading, isError }) {
 
   return (
     <section id="similar-section">
-      <Row mediaType={mediaType} data={similar} title={"Similar Movies"} path={path} />
+      <Row
+        mediaType={mediaType}
+        data={similar}
+        title={"Similar Movies"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
     </section>
   );
 }

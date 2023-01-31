@@ -13,3 +13,4 @@ export { default as Review } from "./Review";
 export { default as SecondaryInfo } from "./SecondaryInfo";
 export { default as Similar } from "./Similar";
 export { default as LoadingSpinner } from "./LoadingSpinner/LoadingSpinner";
+export { default as Search } from "./Search";
