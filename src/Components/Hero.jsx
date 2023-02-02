@@ -106,10 +106,9 @@ function Hero() {
         autoplay={{ delay: 8000, disableOnInteraction: false }}
         className="swiper"
       >
-        {trending.map((item, index) => (
-          <SwiperSlide>
+        {trending.map((item) => (
+          <SwiperSlide key={item.id}>
             <div
-              key={index}
               className="hero-container"
               style={{
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,

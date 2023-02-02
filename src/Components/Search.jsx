@@ -1,28 +1,26 @@
 import { useQueryResults } from "../hooks/getSearch";
 
-import { useState } from "react";
-
-import ScrollContainer from "react-indiana-drag-scroll";
+import { useNavigate } from "react-router";
 
 // configs
 import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
 import { MovieCard } from "../Components";
 
-function Search() {
-  // Init state
-  const [query, setQuery] = useState("");
-
+function Search({ updateQueryValue, query }) {
   // config destructure
   const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   // fetch query results
   const { data: queryResults, isLoading, isError } = useQueryResults(query);
 
-  // update query value
-  function updateQueryValue(e) {
-    setQuery(e.target.value);
-  }
+  const navigate = useNavigate();
+  const goToResults = () => navigate("/search");
+
+  // // update query value
+  // function updateQueryValue(e) {
+  //   setQuery(e.target.value);
+  // }
 
   // if (isLoading) {
   //   return;
@@ -50,7 +48,8 @@ function Search() {
   return (
     <div className="search-container">
       <input
-        onChange={updateQueryValue}
+        onChange={(e) => updateQueryValue(e.target.value)}
+        onInput={goToResults}
         value={query}
         id="search-input"
         type="search"
@@ -72,8 +71,10 @@ function Search() {
                     imageSize={p154}
                     image={item.poster_path}
                   />
-                  {item.title || item.name}{" "}
-                  {item.release_date && `(${item.release_date.substring(0, 4)})`}
+                  <p className="query-dropdown-text">
+                    {item.title || item.name}{" "}
+                    {item.release_date && `(${item.release_date.substring(0, 4)})`}
+                  </p>
                 </li>
               )
           )}

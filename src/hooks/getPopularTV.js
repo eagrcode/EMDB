@@ -7,7 +7,7 @@ const API_KEY = "20be784f740b6b638c906dde5b35efae";
 // Fetch popular TV
 const fetchPopularTV = () => {
   return axios
-    .get(`${baseURL}/movie/top_rated?api_key=${API_KEY}&page=1&lang=us`)
+    .get(`${baseURL}/tv/popular?api_key=${API_KEY}&page=1&lang=us`)
     .then((res) => res.data.results);
 };
 

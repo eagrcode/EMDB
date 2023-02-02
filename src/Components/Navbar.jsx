@@ -4,11 +4,10 @@ import { useState } from "react";
 
 import { Search } from "../Components";
 
-function Navbar() {
+function Navbar({ queryResults, updateQueryValue, query, setQuery }) {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
-  const [query, setQuery] = useState("");
 
   // Toggle open nav menu
   function handleClick() {
@@ -32,6 +31,7 @@ function Navbar() {
   }
 
   // Mobile component
+
   return (
     <>
       <nav className={isScrolling ? "is-scrolling" : ""}>
@@ -48,23 +48,23 @@ function Navbar() {
         </div>
         <div className={`nav-menu ${isOpen ? "active" : ""}`}>
           <ul className="nav-list">
-            <li className="nav-item" onClick={handleClick}>
+            <li className="nav-item">
               <NavLink to="/" className="nav-link">
                 Home
               </NavLink>
             </li>
-            <li className="nav-item" onClick={handleClick}>
+            <li className="nav-item">
               <NavLink to="/movies" className="nav-link">
                 Movies
               </NavLink>
             </li>
-            <li className="nav-item" onClick={handleClick}>
+            <li className="nav-item">
               <NavLink to="/series" className="nav-link">
                 Series
               </NavLink>
             </li>
           </ul>
-          <Search />
+          <Search updateQueryValue={updateQueryValue} query={query} setQuery={setQuery} />
         </div>
       </nav>
       <Outlet />
