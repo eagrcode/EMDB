@@ -4,7 +4,9 @@ import { useState } from "react";
 
 import { Search } from "../Components";
 
-function Navbar({ queryResults, updateQueryValue, query, setQuery }) {
+import { FaSearch } from "react-icons/fa";
+
+function Navbar() {
   // Init state
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
@@ -31,7 +33,6 @@ function Navbar({ queryResults, updateQueryValue, query, setQuery }) {
   }
 
   // Mobile component
-
   return (
     <>
       <nav className={isScrolling ? "is-scrolling" : ""}>
@@ -63,8 +64,12 @@ function Navbar({ queryResults, updateQueryValue, query, setQuery }) {
                 Series
               </NavLink>
             </li>
+            <li className="nav-item">
+              <NavLink to="/search" className="nav-link">
+                Search
+              </NavLink>
+            </li>
           </ul>
-          <Search updateQueryValue={updateQueryValue} query={query} setQuery={setQuery} />
         </div>
       </nav>
       <Outlet />

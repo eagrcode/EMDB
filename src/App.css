@@ -181,78 +181,6 @@ nav.is-scrolling {
   transform: translateY(-10px) rotateZ(-45deg);
 }
 
-#nav-search {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-}
-
-#nav-search-btn {
-  border: none;
-  cursor: pointer;
-  background-color: transparent;
-  color: hsl(195, 40%, 100%);
-}
-
-.search-container {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  gap: 1rem;
-}
-
-.query-dropdown {
-  display: flex;
-  width: 100%;
-  height: 20rem;
-  padding: 10px 5px;
-
-  flex-direction: column;
-  align-items: center;
-  font-size: 0.7rem;
-  border-bottom: solid 1px rgba(255, 255, 255, 0.1);
-  overflow-x: hidden;
-  overflow-y: auto;
-  scroll-snap-type: y mandatory;
-}
-
-.query-dropdown-text {
-  margin-bottom: 5px;
-}
-
-.query-dropdown::-webkit-scrollbar {
-  display: none;
-}
-
-.search-row {
-  display: flex;
-  align-items: center;
-
-  text-align: left;
-  width: 100%;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.search-row div {
-  height: 100%;
-  width: 70px;
-}
-
-.search-row:hover {
-  background-color: rgba(17, 17, 159, 0.2);
-}
-
-#search-input {
-  padding: 6px 10px;
-  border: none;
-  border-radius: 2px;
-  outline: none;
-  width: 100%;
-  font-size: 1rem;
-}
-
 /* HERO */
 
 .hero-container {
@@ -444,9 +372,13 @@ nav.is-scrolling {
 
 /* MEDIA QUERIES */
 
-@media (max-width: 400px) {
+@media (max-width: 408px) {
   html {
     font-size: 80%;
+  }
+
+  .movie-card {
+    width: 100px;
   }
 }
 
@@ -474,6 +406,7 @@ nav.is-scrolling {
 
   .top-nav-mob {
     padding: 0;
+    width: auto;
   }
 
   .nav-menu {
@@ -481,26 +414,18 @@ nav.is-scrolling {
     flex-direction: row;
     min-height: 0;
     height: 100%;
+    width: auto;
     background-color: transparent;
     padding: 0;
   }
 
   .nav-list {
     flex-direction: row;
+    gap: 2rem;
   }
 
-  .search-container {
-    position: relative;
-    min-width: 250px;
-    max-width: 100%;
-  }
-
-  #search-input {
-    width: 100%;
-  }
-
-  .query-dropdown {
-    display: none;
+  .nav-item {
+    width: auto;
   }
 
   .hero-container {
