@@ -1,12 +1,12 @@
+// configs
+import { imageURL, backdropSizes } from "../configs/tmdbConfig";
+
+// components
 import { CastRow } from "../Components";
 
 function DetailsHero2({ info, isLoading, isError }) {
-  // Cast image path
-  const baseURL = "https://image.tmdb.org/t/p/w92";
-
-  // backdrop path
-  const path = "https://image.tmdb.org/t/p/w1280";
-  const posterPath = "https://image.tmdb.org/t/p/w342";
+  // config destructure
+  const { b300, b780, b1280, bOrig } = backdropSizes;
 
   if (isLoading) {
     return <h1>Loading...</h1>;
@@ -21,7 +21,7 @@ function DetailsHero2({ info, isLoading, isError }) {
       <div
         className="hero-container details"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${path}${info.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${info.backdrop_path}")`,
         }}
       >
         <div className="overlay-container details">
@@ -34,14 +34,13 @@ function DetailsHero2({ info, isLoading, isError }) {
               <em>{info.tagline}</em>
             </div>
             <div className="info-container">
-              {info?.release_date} | {info.genres[0]?.name},{" "}
-              {info.genres[1]?.name}, {info.genres[2]?.name} | {info?.runtime}{" "}
-              mins
+              {info?.release_date} | {info.genres[0]?.name}, {info.genres[1]?.name},{" "}
+              {info.genres[2]?.name} | {info?.runtime} mins
             </div>
             <div className="overview-container">
               <p>{info.overview}</p>
             </div>
-            <CastRow data={info.credits.cast} path={baseURL} />
+            <CastRow data={info.credits.cast} />
           </div>
         </div>
       </div>

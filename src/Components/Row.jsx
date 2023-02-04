@@ -1,5 +1,4 @@
-import ScrollContainer from "react-indiana-drag-scroll";
-
+// components
 import { MovieCard } from "./index";
 
 function Row({ data, title, imageURL, imageSize, mediaType }) {

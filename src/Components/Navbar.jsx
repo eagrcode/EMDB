@@ -1,13 +1,11 @@
-import { Outlet, NavLink } from "react-router-dom";
-
+// react
 import { useState } from "react";
 
-import { Search } from "../Components";
-
-import { FaSearch } from "react-icons/fa";
+// react router
+import { Outlet, NavLink } from "react-router-dom";
 
 function Navbar() {
-  // Init state
+  // State
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolling, setIsScrolling] = useState(false);
 
@@ -26,13 +24,13 @@ function Navbar() {
   }
   window.addEventListener("scroll", handleScroll);
 
+  // disable body scroll if mobile menu open
   if (isOpen) {
     document.body.style.overflow = "hidden";
   } else {
     document.body.style.overflow = "visible";
   }
 
-  // Mobile component
   return (
     <>
       <nav className={isScrolling ? "is-scrolling" : ""}>

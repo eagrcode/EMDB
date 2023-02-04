@@ -1,5 +1,4 @@
 // React imports
-import { useState, useEffect } from "react";
 
 // configs
 import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
@@ -21,12 +20,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-// HERO component
 function Hero() {
-  // state
-  // const [currentSlide, setCurrentSlide] = useState(0);
-  const [isBigScreen, setIsBigScreen] = useState(false);
-
   // config destructure
   const { b300, b780, b1280, bOrig } = backdropSizes;
   const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
@@ -62,20 +56,6 @@ function Hero() {
   //   }
   // };
 
-  // Make btn icons bigger on big display
-  // useEffect(() => {
-  //   function growIcons() {
-  //     if (window.innerWidth >= 1020) {
-  //       setIsBigScreen(!isBigScreen);
-  //     } else {
-  //       setIsBigScreen(false);
-  //     }
-  //   }
-  //   window.addEventListener("resize", growIcons);
-  //   return () => window.removeEventListener("resize", growIcons);
-  // }, [window.innerWidth]);
-
-  // Loading screen
   if (isLoading) {
     return (
       <header id="hero-section">
@@ -86,7 +66,6 @@ function Hero() {
     );
   }
 
-  // Error screen
   if (isError) {
     return (
       <header id="hero-section">
@@ -95,7 +74,6 @@ function Hero() {
     );
   }
 
-  // Success screen
   return (
     <header id="hero-section">
       <Swiper
@@ -114,10 +92,6 @@ function Hero() {
                 backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
               }}
             >
-              {/* <button className="hero-nav-btn">
-            <IoChevronBack className="icon" size={50} onClick={toPrevSlide} />
-          </button> */}
-
               <div className="hero-overlay-container">
                 <div id="hero-card">
                   <img src={`${imageURL}${p342}${item?.poster_path}`} />
@@ -138,13 +112,6 @@ function Hero() {
                   </div>
                 </div>
               </div>
-              {/* <button className="hero-nav-btn">
-            <IoChevronForward
-              className="icon"
-              size={50}
-              onClick={toNextSlide}
-            />
-          </button> */}
             </div>
           </SwiperSlide>
         ))}

@@ -1,12 +1,14 @@
-import { useParams } from "react-router";
-
-import { Review } from "../Components";
-
+// react
 import { useState } from "react";
 
+// components
+import { Review } from "../Components";
+
 function Reviews({ reviews, isLoading, isError }) {
+  // state
   const [seeMore, setSeeMore] = useState(false);
 
+  // Toggle see more reviews
   function toggleSeeMore() {
     setSeeMore(!seeMore);
   }
@@ -19,6 +21,7 @@ function Reviews({ reviews, isLoading, isError }) {
     return <p>Error</p>;
   }
 
+  // Placeholder text in case of 0 reviews
   if (reviews?.length === 0) {
     return (
       <section id="reviews-section">

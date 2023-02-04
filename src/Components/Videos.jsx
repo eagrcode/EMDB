@@ -1,8 +1,7 @@
-// import { useVideos } from "../getVideos";
-// import { useParams } from "react-router";
-
+// libraries
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination } from "swiper";
+import YouTube from "react-youtube";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,8 +10,6 @@ import "swiper/css/pagination";
 import "swiper/css/scrollbar";
 import "swiper/css/thumbs";
 import "swiper/css/free-mode";
-
-import YouTube from "react-youtube";
 
 function Videos({ videos, isLoading, isError }) {
   if (isLoading) {

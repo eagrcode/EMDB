@@ -8,10 +8,11 @@ import { useFetchTopRatedTV } from "../hooks/getTopRatedTV";
 // configs
 import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
-// Component imports
+// component imports
 import { Row } from "./index";
 
 function MovieRows() {
+  // data fetch
   const { data: topRated, loadingTopRated, errorTopRated } = useFetchTopRated();
   const { data: upcoming, loadingUpcoming, errorUpcoming } = useFetchUpcoming();
   const { data: latest, loadingLatest, errorLatest } = useFetchLatest();
