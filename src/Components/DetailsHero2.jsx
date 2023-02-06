@@ -47,7 +47,7 @@ function DetailsHero2({ info, isLoading, isError }) {
           <div className="hero-text-container details">
             <div className="details-title-container">
               <h1>{info.title || info.original_name}</h1>
-              <span id="rating">{Math.round(info.vote_average * 10) / 10}</span>
+              {/* <span id="rating">{Math.round(info.vote_average * 10) / 10} / 10</span> */}
             </div>
             <div>
               <em>{info.tagline}</em>

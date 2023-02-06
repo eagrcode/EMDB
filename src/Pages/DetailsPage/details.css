@@ -24,25 +24,15 @@
 }
 
 .details-title-container {
+  width: 100%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 1rem;
 }
 
 #rating {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 60px;
-  width: 60px;
-
-  border: 3px solid white;
-  font-weight: bold;
-  font-size: 1.4rem;
-  color: black;
-  border-radius: 50%;
-  background-color: rgb(100, 215, 250);
-  transform: scale(0.8);
+  font-size: 1rem;
+  font-weight: 600;
 }
 
 em {
@@ -324,5 +314,11 @@ em {
 
   #similar-section {
     padding: 3rem 5rem;
+  }
+}
+
+@media (min-width: 1020px) {
+  .info-container {
+    font-size: 1rem;
   }
 }

@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Home, Movies, Series, Details, DetailsTV, ResultsPage } from "./Pages";
 
 // Component imports
-import { Navbar } from "./Components";
+import { Navbar, Footer } from "./Components";
 
 // Stylesheet imports
 import "./App.css";
@@ -35,6 +35,7 @@ function App() {
           <Route path="search" element={<ResultsPage />} />
         </Route>
       </Routes>
+      <Footer />
       <ReactQueryDevtools initialIsOpen={false} />
     </QueryClientProvider>
   );
