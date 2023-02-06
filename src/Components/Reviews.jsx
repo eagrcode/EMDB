@@ -25,8 +25,10 @@ function Reviews({ reviews, isLoading, isError }) {
   if (reviews?.length === 0) {
     return (
       <section id="reviews-section">
-        <h2 className="reviews-header">Reviews</h2>
-        <p>Oops! There doesn't seem to be any reviews for this Movie yet.</p>
+        <div className="reviews-wrapper">
+          <h2 className="reviews-header">Reviews</h2>
+          <p>Oops! There doesn't seem to be any reviews for this Movie yet.</p>
+        </div>
       </section>
     );
   }

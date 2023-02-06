@@ -140,6 +140,12 @@ em {
   border-bottom: solid 1px rgba(128, 128, 128, 0.5);
 }
 
+.reviews-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
 .reviews-header {
   margin-bottom: 1rem;
 }
@@ -272,11 +278,12 @@ em {
     padding: 0 5rem 3rem 5rem;
     background-color: hsl(220, 20%, 95%);
     display: flex;
-    justify-content: center;
+    align-items: center;
+    flex-direction: column;
   }
 
-  .reviews-container {
-    display: flex;
+  .reviews-wrapper {
+    max-width: 60rem;
   }
 
   #secondary-info-section {

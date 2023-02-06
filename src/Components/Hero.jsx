@@ -101,9 +101,6 @@ function Hero() {
                     <h1>{item?.title}</h1>
                   </div>
                   <div className="btn-container">
-                    <button className="hero-btn">
-                      Trailer <FaPlayCircle className="play-icon" size={20} />
-                    </button>
                     <Link className="details-link" to={`/details/movie/${item?.id}`}>
                       <button className="hero-btn">
                         Info <FaInfoCircle className="info-icon" size={20} />
