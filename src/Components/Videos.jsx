@@ -12,14 +12,6 @@ import "swiper/css/thumbs";
 import "swiper/css/free-mode";
 
 function Videos({ videos, isLoading, isError }) {
-  if (isLoading) {
-    return <p>Loading</p>;
-  }
-
-  if (isError) {
-    return <p>Error</p>;
-  }
-
   const opts = {
     height: "100%",
     width: "100%",
@@ -33,6 +25,17 @@ function Videos({ videos, isLoading, isError }) {
         </SwiperSlide>
       )
   );
+
+  if (videos?.length === 0) {
+    return (
+      <section id="trailer-section">
+        <div className="media-container">
+          <h2 className="media-header">Media</h2>
+          <p id="media-error">No media available</p>
+        </div>
+      </section>
+    );
+  }
 
   return (
     <section id="trailer-section">

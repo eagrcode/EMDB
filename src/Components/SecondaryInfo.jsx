@@ -20,11 +20,11 @@ function SecondaryInfo({ info, isLoading, isError }) {
         </div>
         <div>
           <h3>Budget</h3>
-          <p>${info.budget}</p>
+          <p>{info.budget ? `$${info.budget}` : "n/a"}</p>
         </div>
         <div>
           <h3>Revenue</h3>
-          <p>${info.revenue}</p>
+          <p>{info.revenue ? `$${info.revenue}` : "n/a"}</p>
         </div>
         <div>
           <h3>Homepage</h3>

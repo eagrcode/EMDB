@@ -16,8 +16,11 @@ function Review({ author, content, created }) {
   return (
     <li className="review-card">
       <div className="review-card-top">
-        <h3 className="review-author">{author}</h3>
-        <span className="created-tag">{created.substring(10, -1)}</span>
+        <div className="review-card-left">
+          <h3 className="review-author">{author}</h3>
+          <span className="created-tag">{created.substring(10, -1)}</span>
+        </div>
+
         {isOpen ? (
           <FiChevronDown className="review-card-icon" size={30} onClick={toggleOpen} />
         ) : (

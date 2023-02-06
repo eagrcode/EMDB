@@ -57,7 +57,7 @@ function MovieRows() {
       <Row
         mediaType={"movie"}
         data={topRated}
-        title={"Classics"}
+        title={"Top Rated Movies"}
         imageURL={imageURL}
         imageSize={p185}
       />

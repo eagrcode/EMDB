@@ -1,20 +1,38 @@
 // configs
 import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 
+// library imports
+import MoonLoader from "react-spinners/MoonLoader";
+
 // components
 import { CastRow } from "../Components";
 
 function DetailsHero2({ info, isLoading, isError }) {
   // config destructure
   const { b300, b780, b1280, bOrig } = backdropSizes;
-  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   if (isLoading) {
-    return <h1>Loading...</h1>;
+    return (
+      <header id="hero-section">
+        <div className="hero-container details">
+          <MoonLoader
+            color="hsl(195, 40%, 90%)"
+            loading={isLoading}
+            size={30}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      </header>
+    );
   }
 
   if (isError) {
-    return <h1>Error</h1>;
+    return (
+      <header id="hero-section">
+        <div className="hero-container details">Sorry, could not find what you're looking for!</div>
+      </header>
+    );
   }
 
   return (
@@ -22,7 +40,7 @@ function DetailsHero2({ info, isLoading, isError }) {
       <div
         className="hero-container details"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${info.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${info.backdrop_path}")`,
         }}
       >
         <div className="overlay-container details">

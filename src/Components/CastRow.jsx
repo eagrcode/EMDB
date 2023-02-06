@@ -1,13 +1,18 @@
 // configs
 import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
+// images
+import portraitPlaceholder from "../assets/portrait-placeholder.png";
+
 function CastRow({ data }) {
   // config destructure
   const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   const castRow = data?.map((item, index) => (
     <div className="cast-item" key={index}>
-      <img src={item.profile_path ? `${imageURL}${p92}${item.profile_path}` : ""} />
+      <img
+        src={item?.profile_path ? `${imageURL}${p92}${item.profile_path}` : portraitPlaceholder}
+      />
       <span className="cast-name">{item.name}</span>
     </div>
   ));

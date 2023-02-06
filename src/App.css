@@ -25,12 +25,12 @@ html {
 h1 {
   margin: 0;
   font-size: 1.6rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h2 {
   font-size: 1.2rem;
-  font-weight: 400;
+  font-weight: 600;
 }
 
 h3 {
@@ -193,6 +193,11 @@ nav.is-scrolling {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: top;
+}
+
+.hero-container.loading {
+  justify-content: center;
+  align-items: center;
 }
 
 .swiper-pagination-bullet {
@@ -387,8 +392,13 @@ nav.is-scrolling {
 
 @media (min-width: 768px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 1.8rem;
   }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
   .hamburger {
     display: none;
   }
@@ -443,17 +453,14 @@ nav.is-scrolling {
 @media (min-width: 1020px) {
   h1 {
     font-size: 3rem;
-    font-weight: 600;
   }
 
   h2 {
     font-size: 1.6rem;
-    font-weight: 600;
   }
 
   h3 {
     font-size: 1.4rem;
-    font-weight: 600;
   }
 
   #logo {

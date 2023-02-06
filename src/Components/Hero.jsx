@@ -1,4 +1,5 @@
-// React imports
+// react
+import { CSSProperties } from "react";
 
 // configs
 import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
@@ -7,15 +8,13 @@ import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 import { usefetchTrending } from "../hooks/getTrending";
 
 // library imports
-import { FaInfoCircle, FaPlayCircle } from "react-icons/fa";
+import { FaInfoCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Pagination } from "swiper";
+import MoonLoader from "react-spinners/MoonLoader";
 
-// component imports
-import { LoadingSpinner } from "../Components";
-
-// Import Swiper styles
+// swiper styles
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
@@ -56,11 +55,22 @@ function Hero() {
   //   }
   // };
 
+  // const override = {
+  //   display: "block",
+  //   margin: "0 auto",
+  // };
+
   if (isLoading) {
     return (
       <header id="hero-section">
-        <div className="hero-container">
-          <LoadingSpinner />
+        <div className="hero-container loading">
+          <MoonLoader
+            color="hsl(195, 40%, 90%)"
+            loading={isLoading}
+            size={30}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
         </div>
       </header>
     );
@@ -69,7 +79,7 @@ function Hero() {
   if (isError) {
     return (
       <header id="hero-section">
-        <div className="hero-container">Where's the fucking data?!</div>
+        <div className="hero-container">Sorry, could not find what you're looking for!</div>
       </header>
     );
   }
@@ -89,7 +99,7 @@ function Hero() {
             <div
               className="hero-container"
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.7), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
               }}
             >
               <div className="hero-overlay-container">

@@ -49,6 +49,10 @@ em {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.info-container {
+  font-size: 0.8rem;
+}
+
 .cast-container {
   display: flex;
   gap: 1rem;
@@ -94,10 +98,16 @@ em {
   display: flex;
   flex-direction: column;
   width: 100%;
+  gap: 1rem;
 }
 
 .media-header {
   margin-left: 1rem;
+}
+
+#media-error {
+  margin-left: 1rem;
+  align-self: flex-start;
 }
 
 .video-row {
@@ -173,6 +183,17 @@ em {
   box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   font-size: 0.8rem;
   letter-spacing: 1.2px;
+}
+
+.review-card-top {
+  display: flex;
+  justify-content: space-between;
+}
+
+.review-card-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
 }
 
 .content-container {
@@ -272,6 +293,10 @@ em {
 
   .media-header {
     align-self: flex-start;
+    margin-left: 0;
+  }
+
+  #media-error {
     margin-left: 0;
   }
 

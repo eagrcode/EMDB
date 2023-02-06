@@ -51,24 +51,6 @@ function ResultsPage() {
       <>
         <section className="results-section">
           <Search updateQueryValue={updateQueryValue} query={query} setQuery={setQuery} />
-          {queryResults && (
-            <div className="results-grid">
-              {queryResults.map(
-                (item) =>
-                  item.vote_count >= 100 && (
-                    <MovieCard
-                      mediaType={item.media_type}
-                      key={item.id}
-                      id={item.id}
-                      title={item.title || item.name}
-                      imageURL={imageURL}
-                      imageSize={p154}
-                      image={item.poster_path}
-                    />
-                  )
-              )}
-            </div>
-          )}
         </section>
         <section className="discover-section">
           <h2>Discover</h2>
@@ -96,6 +78,7 @@ function ResultsPage() {
   return (
     <section className="results-section">
       <Search updateQueryValue={updateQueryValue} query={query} setQuery={setQuery} />
+      <h2 id="results-header">Results</h2>
       {queryResults && (
         <div className="results-grid">
           {queryResults.map(
