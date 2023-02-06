@@ -51,25 +51,25 @@ function ResultsPage() {
       <>
         <section className="results-section">
           <Search updateQueryValue={updateQueryValue} query={query} setQuery={setQuery} />
-        </section>
-        <section className="discover-section">
-          <h2>Discover</h2>
-          <div className="results-grid">
-            {trending.map(
-              (item) =>
-                item.vote_count >= 100 && (
-                  <MovieCard
-                    mediaType={item.media_type}
-                    key={item.id}
-                    id={item.id}
-                    title={item.title || item.name}
-                    imageURL={imageURL}
-                    imageSize={p154}
-                    image={item.poster_path}
-                  />
-                )
-            )}
-          </div>
+          <section className="discover-section">
+            <h2>Discover</h2>
+            <div className="results-grid">
+              {trending.map(
+                (item) =>
+                  item.vote_count >= 100 && (
+                    <MovieCard
+                      mediaType={item.media_type}
+                      key={item.id}
+                      id={item.id}
+                      title={item.title || item.name}
+                      imageURL={imageURL}
+                      imageSize={p154}
+                      image={item.poster_path}
+                    />
+                  )
+              )}
+            </div>
+          </section>
         </section>
       </>
     );

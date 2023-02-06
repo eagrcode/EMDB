@@ -51,7 +51,6 @@ body {
   /* background-color: hsl(240, 100%, 5%); */
   background-color: hsl(235, 30%, 15%);
   color: hsl(195, 40%, 90%);
-  overflow-y: visible;
 }
 
 /* COMPONENT STYLES */
@@ -387,6 +386,7 @@ footer {
   align-items: center;
   gap: 10px;
   padding: 1rem 0 3rem 0;
+  bottom: 0;
 }
 
 #footer-nav {
