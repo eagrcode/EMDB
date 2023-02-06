@@ -35,11 +35,10 @@ function Navbar() {
     <>
       <nav className={isScrolling ? "is-scrolling" : ""}>
         <div className={`top-nav-mob ${isOpen ? "active" : ""}`}>
-          <NavLink to="/" className="nav-link" id="logo">
+          <NavLink onClick={isOpen && handleClick} to="/" className="nav-link" id="logo">
             EMDB
           </NavLink>
-
-          <div onClick={handleClick} className={`hamburger ${isOpen ? "active" : ""}`}>
+          <div onClick={isOpen && handleClick} className={`hamburger ${isOpen ? "active" : ""}`}>
             <span className="bar"></span>
             <span className="bar"></span>
             <span className="bar"></span>
@@ -48,22 +47,22 @@ function Navbar() {
         <div className={`nav-menu ${isOpen ? "active" : ""}`}>
           <ul className="nav-list">
             <li className="nav-item">
-              <NavLink to="/" className="nav-link">
+              <NavLink onClick={isOpen && handleClick} to="/" className="nav-link">
                 Home
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/movies" className="nav-link">
+              <NavLink onClick={isOpen && handleClick} to="/movies" className="nav-link">
                 Movies
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/series" className="nav-link">
+              <NavLink onClick={isOpen && handleClick} to="/series" className="nav-link">
                 Series
               </NavLink>
             </li>
             <li className="nav-item">
-              <NavLink to="/search" className="nav-link">
+              <NavLink onClick={isOpen && handleClick} to="/search" className="nav-link">
                 Search
               </NavLink>
             </li>
