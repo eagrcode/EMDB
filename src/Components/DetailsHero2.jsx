@@ -1,5 +1,5 @@
 // configs
-import { imageURL, backdropSizes } from "../configs/tmdbConfig";
+import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 
 // components
 import { CastRow } from "../Components";
@@ -7,6 +7,7 @@ import { CastRow } from "../Components";
 function DetailsHero2({ info, isLoading, isError }) {
   // config destructure
   const { b300, b780, b1280, bOrig } = backdropSizes;
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
   if (isLoading) {
     return <h1>Loading...</h1>;

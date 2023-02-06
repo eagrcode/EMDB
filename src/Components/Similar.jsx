@@ -29,7 +29,7 @@ function Similar({ mediaType, similar, isLoading, isError }) {
       <Row
         mediaType={mediaType}
         data={similar}
-        title={"Similar Movies"}
+        title={"Similar"}
         imageURL={imageURL}
         imageSize={p185}
       />

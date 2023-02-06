@@ -36,18 +36,20 @@ function Videos({ videos, isLoading, isError }) {
 
   return (
     <section id="trailer-section">
-      <h2 className="media-header">Media</h2>
-      <div className="video-row">
-        <Swiper
-          modules={[Navigation, Pagination]}
-          slidesPerView={1}
-          navigation={true}
-          pagination={{ clickable: true }}
-          loop={true}
-          className="swiper"
-        >
-          {videosRow}
-        </Swiper>
+      <div className="media-container">
+        <h2 className="media-header">Media</h2>
+        <div className="video-row">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            navigation={true}
+            pagination={{ clickable: true }}
+            loop={true}
+            className="swiper"
+          >
+            {videosRow}
+          </Swiper>
+        </div>
       </div>
     </section>
   );

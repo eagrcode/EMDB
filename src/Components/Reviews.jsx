@@ -33,34 +33,36 @@ function Reviews({ reviews, isLoading, isError }) {
 
   return (
     <section id="reviews-section">
-      <h2 className="reviews-header">Reviews {`(${reviews.length})`}</h2>
-      {seeMore ? (
-        <ul className="reviews-container">
-          {reviews.map((review, id) => (
-            <Review
-              key={id}
-              author={review.author}
-              content={review.content}
-              created={review.created_at}
-            />
-          ))}
-        </ul>
-      ) : (
-        <ul className="reviews-container">
-          {reviews.slice(-1).map((review, id) => (
-            <Review
-              key={id}
-              author={review.author}
-              content={review.content}
-              created={review.created_at}
-            />
-          ))}
-        </ul>
-      )}
+      <div className="reviews-wrapper">
+        <h2 className="reviews-header">Reviews {`(${reviews.length})`}</h2>
+        {seeMore ? (
+          <ul className="reviews-container">
+            {reviews.map((review, id) => (
+              <Review
+                key={id}
+                author={review.author}
+                content={review.content}
+                created={review.created_at}
+              />
+            ))}
+          </ul>
+        ) : (
+          <ul className="reviews-container">
+            {reviews.slice(-1).map((review, id) => (
+              <Review
+                key={id}
+                author={review.author}
+                content={review.content}
+                created={review.created_at}
+              />
+            ))}
+          </ul>
+        )}
 
-      <button onClick={toggleSeeMore} className="see-more-btn">
-        {seeMore ? "Show Less" : "More Reviews"}
-      </button>
+        <button onClick={toggleSeeMore} className="see-more-btn">
+          {seeMore ? "Show Less" : "More Reviews"}
+        </button>
+      </div>
     </section>
   );
 }

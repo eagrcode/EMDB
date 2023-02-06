@@ -7,14 +7,16 @@
 
 .hero-container.details {
   padding-bottom: 3rem;
+  justify-content: center;
 }
 
 .overlay-container.details {
   display: flex;
-  flex-direction: column;
+
   justify-content: flex-end;
   gap: 1rem;
   width: 100%;
+  max-width: 60rem;
 }
 
 .hero-text-container.details {
@@ -31,12 +33,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 50px;
-  width: 50px;
+  height: 60px;
+  width: 60px;
 
   border: 3px solid white;
   font-weight: bold;
-  font-size: 1.2rem;
+  font-size: 1.4rem;
   color: black;
   border-radius: 50%;
   background-color: rgb(100, 215, 250);
@@ -45,12 +47,6 @@
 
 em {
   color: rgba(255, 255, 255, 0.9);
-}
-
-.overview-container {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 5px;
-  padding: 2px;
 }
 
 .cast-container {
@@ -82,10 +78,22 @@ em {
 
 /* TRAILER SECTION */
 
-#trailer-section {
+/* #trailer-section {
   background-color: var(--second-bg-color);
   color: black;
   padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+} */
+
+.media-container {
+  background-color: var(--second-bg-color);
+  color: black;
+  padding: 3rem 0;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .media-header {
@@ -95,6 +103,8 @@ em {
 .video-row {
   display: flex;
   margin-top: 1rem;
+  width: 100%;
+  max-width: 60rem;
 }
 
 .video-player {
@@ -138,6 +148,7 @@ em {
   display: flex;
   flex-direction: column-reverse;
   gap: 1rem;
+  max-width: 60rem;
 }
 
 /* .reviews-container li:not(:first-child) {
@@ -234,4 +245,51 @@ em {
   background-color: var(--second-bg-color);
   color: black;
   padding: 3rem 1rem;
+}
+
+/* media queries */
+
+@media (min-width: 768px) {
+  #trailer-section {
+    width: 100%;
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: center;
+    background-color: hsl(220, 20%, 95%);
+  }
+
+  .media-container {
+    align-items: center;
+    max-width: 60rem;
+  }
+
+  .media-header {
+    align-self: flex-start;
+    margin-left: 0;
+  }
+
+  #reviews-section {
+    padding: 0 5rem 3rem 5rem;
+    background-color: hsl(220, 20%, 95%);
+    display: flex;
+    justify-content: center;
+  }
+
+  .reviews-container {
+    display: flex;
+  }
+
+  #secondary-info-section {
+    padding: 3rem 5rem;
+    display: flex;
+    justify-content: center;
+  }
+
+  .secondary-info-container {
+    max-width: 60rem;
+  }
+
+  #similar-section {
+    padding: 3rem 5rem;
+  }
 }
