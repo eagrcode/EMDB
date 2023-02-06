@@ -44,7 +44,8 @@ p {
 }
 
 body {
-  background-color: hsl(240, 100%, 5%);
+  /* background-color: hsl(240, 100%, 5%); */
+  background-color: hsl(235, 30%, 15%);
   color: hsl(195, 40%, 90%);
 }
 
@@ -316,6 +317,7 @@ nav.is-scrolling {
   overflow-x: auto;
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
+  padding: 5px;
 }
 
 .movie-row-inner::-webkit-scrollbar {
@@ -434,7 +436,7 @@ nav.is-scrolling {
   }
 
   #movie-rows-section {
-    padding: 2rem 3rem;
+    padding: 2rem 5rem;
   }
 }
 

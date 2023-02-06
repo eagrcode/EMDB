@@ -89,7 +89,7 @@ function Hero() {
             <div
               className="hero-container"
               style={{
-                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
+                backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${item?.backdrop_path}")`,
               }}
             >
               <div className="hero-overlay-container">

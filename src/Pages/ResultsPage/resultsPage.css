@@ -43,7 +43,7 @@
   justify-content: space-between;
   row-gap: 1rem;
 
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 /* discover */
@@ -65,11 +65,11 @@
 
 @media (min-width: 768px) {
   .results-section {
-    padding: 0 3rem;
+    padding: 0 5rem;
   }
 
   .discover-section {
-    padding: 0 3rem;
+    padding: 0 5rem;
   }
 
   #search-input {

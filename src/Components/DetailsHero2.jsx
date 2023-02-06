@@ -22,7 +22,7 @@ function DetailsHero2({ info, isLoading, isError }) {
       <div
         className="hero-container details"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), hsl(240, 100%, 5%)), url("${imageURL}${b1280}${info.backdrop_path}")`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), hsl(235, 30%, 15%)), url("${imageURL}${b1280}${info.backdrop_path}")`,
         }}
       >
         <div className="overlay-container details">
