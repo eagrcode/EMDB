@@ -135,6 +135,7 @@ nav.is-scrolling {
 #logo {
   font-size: 1.5rem;
   color: white;
+  width: auto;
 }
 
 .nav-item {
