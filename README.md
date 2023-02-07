@@ -10,6 +10,12 @@ The purpose of this project, is to allow the user to find information on a range
 - Information page - trailers, reviews and more
 - Search TMDB api for all Movies and TV Shows
 
+### Future Features
+
+- Add user review
+- Sort by genre
+- Add favourites
+
 ## Technologies
 
 - [ViteJS](https://vitejs.dev/ "ViteJS")
