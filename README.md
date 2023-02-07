@@ -25,8 +25,17 @@ The purpose of this project, is to allow the user to find information on a range
 
 ## Setup
 
-1. git clone https://github.com/eagrcode/EMDB.git
-2. npm install
+1. Clone project to directory
+
+```console
+$ git clone https://github.com/eagrcode/EMDB.git
+```
+
+2. Install project dependencies
+
+```console
+$ npm install
+```
 
 ### Run commands
 
