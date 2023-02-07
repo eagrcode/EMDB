@@ -22,7 +22,11 @@ const queryClient = new QueryClient({
   },
 });
 
+import { log } from "./helper.js";
+
 function App() {
+  log("Hello", 1, 2, 3, Date.now());
+
   return (
     <QueryClientProvider client={queryClient}>
       <Routes>
