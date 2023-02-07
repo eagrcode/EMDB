@@ -1,32 +1,60 @@
-import { useVideos } from "../getVideos";
-import { useParams } from "react-router";
+// libraries
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Navigation, Pagination } from "swiper";
+import YouTube from "react-youtube";
 
-import { VideoPlayer } from "../Components";
-import ScrollContainer from "react-indiana-drag-scroll";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
+import "swiper/css/thumbs";
+import "swiper/css/free-mode";
 
-function Videos() {
-  const { id } = useParams();
+function Videos({ videos, isLoading, isError }) {
+  const opts = {
+    height: "100%",
+    width: "100%",
+  };
 
-  const { data: videos, isLoading, isError } = useVideos(id);
+  const videosRow = videos?.map(
+    (video) =>
+      video.type === "Trailer" && (
+        <SwiperSlide width="100%" key={video.id}>
+          <YouTube videoId={video.key} opts={opts} className="video-player" />
+        </SwiperSlide>
+      )
+  );
 
-  if (isLoading) {
-    return;
+  if (videos?.length === 0) {
+    return (
+      <section id="trailer-section">
+        <div className="media-container">
+          <h2 className="media-header">Media</h2>
+          <p id="media-error">No media available</p>
+        </div>
+      </section>
+    );
   }
-
-  if (isError) {
-    return;
-  }
-
-  const videosRow = videos?.map((video) => (
-    <VideoPlayer key={video.id} id={video.key} />
-  ));
 
   return (
-    <div className="video-row">
-      <ScrollContainer vertical={false} className="video-row-inner">
-        {videosRow}
-      </ScrollContainer>
-    </div>
+    <section id="trailer-section">
+      <div className="media-container">
+        <h2 className="media-header">Media</h2>
+        <div className="video-row">
+          <Swiper
+            modules={[Navigation, Pagination]}
+            slidesPerView={1}
+            navigation={true}
+            pagination={{ clickable: true }}
+            loop={true}
+            className="swiper"
+          >
+            {videosRow}
+          </Swiper>
+        </div>
+      </div>
+    </section>
   );
 }
 

@@ -1,93 +1,95 @@
-// Library imports
-import axios from "axios";
-import { useQuery } from "@tanstack/react-query";
+// hooks
+import { useFetchTopRated } from "../hooks/getTopRated";
+import { useFetchUpcoming } from "../hooks/getUpcoming";
+import { useFetchLatest } from "../hooks/getLatest";
+import { useFetchPopularTV } from "../hooks/getPopularTV";
+import { useFetchTopRatedTV } from "../hooks/getTopRatedTV";
 
-// Request imports
-import requests from "../requests";
+// configs
+import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
-// Component imports
+// component imports
 import { Row } from "./index";
 
 function MovieRows() {
-  // FETCH TOP RATED
-  const {
-    data: topRated,
-    isLoading: loadingTopRated,
-    isError: errorTopRated,
-  } = useQuery(["topRated"], () => {
-    return axios.get(requests.fetchTopRated).then((res) => res.data.results);
-  });
+  // data fetch
+  const { data: topRated, loadingTopRated, errorTopRated } = useFetchTopRated();
+  const { data: upcoming, loadingUpcoming, errorUpcoming } = useFetchUpcoming();
+  const { data: latest, loadingLatest, errorLatest } = useFetchLatest();
+  const { data: popularTV, loadingPopularTV, errorPopularTV } = useFetchPopularTV();
+  const { data: topRatedTV, loadingTopRatedTV, errorTopRatedTV } = useFetchTopRatedTV();
 
-  // FETCH UPCOMING
-  const {
-    data: upcoming,
-    isLoading: loadingUpcoming,
-    isError: errorUpcoming,
-  } = useQuery(["upcoming"], () => {
-    return axios.get(requests.fetchUpcoming).then((res) => res.data.results);
-  });
+  // config destructure
+  const { p92, p154, p185, p342, p500, p780, pOrig } = posterSizes;
 
-  // FETCH LATEST
-  const {
-    data: latest,
-    isLoading: loadingLatest,
-    isError: errorLatest,
-  } = useQuery(["latest"], () => {
-    return axios.get(requests.fetchLatest).then((res) => res.data.results);
-  });
-
-  // FETCH POPULAR TV
-  const {
-    data: popularTV,
-    isLoading: loadingPopularTV,
-    isError: errorPopularTV,
-  } = useQuery(["popularTV"], () => {
-    return axios.get(requests.fetchPopularTV).then((res) => res.data.results);
-  });
-
-  // FETCH TOP RATED TV
-  const {
-    data: topRatedTV,
-    isLoading: loadingTopRatedTV,
-    isError: errorTopRatedTV,
-  } = useQuery(["topRatedTV"], () => {
-    return axios.get(requests.fetchTopRatedTV).then((res) => res.data.results);
-  });
-
-  const path = "https://image.tmdb.org/t/p/w185";
-
-  if (loadingTopRated || loadingUpcoming || loadingLatest) {
+  if (
+    loadingTopRated ||
+    loadingUpcoming ||
+    loadingLatest ||
+    loadingTopRatedTV ||
+    loadingPopularTV
+  ) {
     return (
-      <>
+      <main id="movie-rows-section">
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
         <Row title={"Loading..."} />
-      </>
+      </main>
     );
   }
 
-  if (errorTopRated || errorUpcoming || errorLatest) {
+  if (errorTopRated || errorUpcoming || errorLatest || errorTopRatedTV || errorPopularTV) {
     return (
-      <>
+      <main id="movie-rows-section">
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
         <Row title={"Error"} />
-      </>
+      </main>
     );
   }
 
   return (
-    <>
-      <Row data={topRated} title={"Classics"} path={path} />
-      <Row data={upcoming} title={"Upcoming"} path={path} />
-      <Row data={latest} title={"Latest"} path={path} />
-      <Row data={popularTV} title={"Popular TV"} path={path} />
-      <Row data={topRatedTV} title={"Top Rated TV"} path={path} />
-    </>
+    <main id="movie-rows-section">
+      <Row
+        mediaType={"movie"}
+        data={topRated}
+        title={"Top Rated Movies"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"movie"}
+        data={upcoming}
+        title={"Upcoming"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"movie"}
+        data={latest}
+        title={"Latest"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"tv"}
+        data={popularTV}
+        title={"Popular TV"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+      <Row
+        mediaType={"tv"}
+        data={topRatedTV}
+        title={"Top Rated TV"}
+        imageURL={imageURL}
+        imageSize={p185}
+      />
+    </main>
   );
 }
 

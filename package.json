@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "host": "vite --host"
   },
   "dependencies": {
     "@tanstack/react-query": "^4.20.9",
@@ -18,7 +19,9 @@
     "react-indiana-drag-scroll": "^2.2.0",
     "react-router": "^6.5.0",
     "react-router-dom": "^6.5.0",
-    "react-youtube": "^10.1.0"
+    "react-spinners": "^0.13.8",
+    "react-youtube": "^10.1.0",
+    "swiper": "^8.4.6"
   },
   "devDependencies": {
     "@types/react": "^18.0.24",

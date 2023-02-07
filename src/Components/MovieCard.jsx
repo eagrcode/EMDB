@@ -1,11 +1,12 @@
+// react router
 import { Link } from "react-router-dom";
 
-function MovieCard({ id, title, path, image }) {
+function MovieCard({ id, mediaType, imageURL, imageSize, image }) {
   if (image) {
     return (
-      <Link to={`/details/${id}`}>
+      <Link to={`/details/${mediaType}/${id}`}>
         <div className="movie-card">
-          <img id="movie-card-img" src={`${path}${image}`} alt="movie-poster" />
+          <img id="movie-card-img" src={`${imageURL}${imageSize}${image}`} alt="movie-poster" />
         </div>
       </Link>
     );

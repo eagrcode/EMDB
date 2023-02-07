@@ -1,24 +1,23 @@
-import ScrollContainer from "react-indiana-drag-scroll";
-
+// components
 import { MovieCard } from "./index";
 
-function Row({ data, title, path }) {
+function Row({ data, title, imageURL, imageSize, mediaType }) {
   const movieRow = data?.map((movie) => (
     <MovieCard
+      mediaType={mediaType}
       key={movie.id}
       id={movie.id}
       title={movie.title}
-      path={path}
-      image={movie.poster_path}
+      imageURL={imageURL}
+      imageSize={imageSize}
+      image={movie?.poster_path}
     />
   ));
 
   return (
     <div className="movie-row">
-      <h3>{title}</h3>
-      <ScrollContainer vertical={false} className="movie-row-inner">
-        {movieRow}
-      </ScrollContainer>
+      <h2>{title}</h2>
+      <div className="movie-row-inner">{movieRow}</div>
     </div>
   );
 }
