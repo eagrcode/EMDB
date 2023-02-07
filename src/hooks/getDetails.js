@@ -2,15 +2,15 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseURL } from "../configs/tmdbConfig";
 
-const API_KEY = "20be784f740b6b638c906dde5b35efae";
-
 // Fetch movie details by ID
 const fetchDetails = ({ queryKey }) => {
   const mediaType = queryKey[1];
   const id = queryKey[2];
   return axios
     .get(
-      `${baseURL}/${mediaType}/${id}?api_key=${API_KEY}&append_to_response=credits,videos,reviews,similar&language=en-US`
+      `${baseURL}/${mediaType}/${id}?api_key=${
+        import.meta.env.VITE_API_KEY
+      }&append_to_response=credits,videos,reviews,similar&language=en-US`
     )
     .then((res) => res.data);
 };

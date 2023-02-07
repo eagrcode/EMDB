@@ -2,12 +2,10 @@ import { useQuery } from "@tanstack/react-query";
 import axios from "axios";
 import { baseURL } from "../configs/tmdbConfig";
 
-const API_KEY = "20be784f740b6b638c906dde5b35efae";
-
 // Fetch Movies page 1
 const fetchMovies1 = () => {
   return axios
-    .get(`${baseURL}/discover/movie?api_key=${API_KEY}&page=1&lang=us`)
+    .get(`${baseURL}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=1&lang=us`)
     .then((res) => res.data.results);
 };
 
@@ -22,7 +20,7 @@ export const usefetchMovies1 = () => {
 // Fetch Movies page
 const fetchMovies2 = () => {
   return axios
-    .get(`${baseURL}/discover/movie?api_key=${API_KEY}&page=2&lang=us`)
+    .get(`${baseURL}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=2&lang=us`)
     .then((res) => res.data.results);
 };
 
@@ -37,7 +35,7 @@ export const useFetchMovies2 = () => {
 // Fetch Movies page 3
 const fetchMovies3 = () => {
   return axios
-    .get(`${baseURL}/discover/movie?api_key=${API_KEY}&page=3&lang=us`)
+    .get(`${baseURL}/discover/movie?api_key=${import.meta.env.VITE_API_KEY}&page=3&lang=us`)
     .then((res) => res.data.results);
 };
 
