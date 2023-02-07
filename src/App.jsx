@@ -22,10 +22,10 @@ const queryClient = new QueryClient({
   },
 });
 
-import { log } from "./helper.js";
-
 function App() {
-  log("Hello", 1, 2, 3, Date.now());
+  if (import.meta.env.MODE === "production") {
+    console.log = () => {};
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
