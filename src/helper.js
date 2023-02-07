@@ -5,6 +5,6 @@ const log = (function (environment) {
   return (...args) => {
     console.log(...args);
   };
-})(import.meta.env.PROD);
+})(import.meta.env.MODE);
 
 export { log };
