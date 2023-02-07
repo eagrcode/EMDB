@@ -1,4 +1,4 @@
-import "../DetailsPage/details.css";
+import "../DetailsPage/details-page.css";
 
 import { useParams } from "react-router";
 import { useItemDetails } from "../../hooks/getDetails";

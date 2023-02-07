@@ -6,7 +6,7 @@ import { useQueryResults } from "../../hooks/getSearch";
 import { usefetchTrending } from "../../hooks/getTrending";
 
 // css
-import "../ResultsPage/resultsPage.css";
+import "../ResultsPage/results-page.css";
 
 // configs
 import { imageURL, posterSizes } from "../../configs/tmdbConfig";
