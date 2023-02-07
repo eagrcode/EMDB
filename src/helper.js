@@ -5,6 +5,6 @@ const log = (function (environment) {
   return (...args) => {
     console.log(...args);
   };
-})(process.env.VITE_NODE_ENV);
+})(import.meta.env.PROD);
 
 export { log };
