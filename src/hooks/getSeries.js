@@ -20,7 +20,7 @@ export const usefetchSeries1 = () => {
 // Fetch Series page
 const fetchSeries2 = () => {
   return axios
-    .get(`${baseURL}/discover/tv?api_key=${API_KEY}&page=2&lang=us`)
+    .get(`${baseURL}/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&page=2&lang=us`)
     .then((res) => res.data.results);
 };
 
@@ -35,7 +35,7 @@ export const useFetchSeries2 = () => {
 // Fetch Series page 3
 const fetchSeries3 = () => {
   return axios
-    .get(`${baseURL}/discover/tv?api_key=${API_KEY}&page=3&lang=us`)
+    .get(`${baseURL}/discover/tv?api_key=${import.meta.env.VITE_API_KEY}&page=3&lang=us`)
     .then((res) => res.data.results);
 };
 

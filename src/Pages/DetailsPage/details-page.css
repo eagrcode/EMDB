@@ -102,7 +102,7 @@ em {
 
 .video-row {
   display: flex;
-  margin-top: 1rem;
+
   width: 100%;
   max-width: 60rem;
 }
