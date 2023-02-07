@@ -2,7 +2,7 @@
 import { usefetchSeries1, useFetchSeries2, usefetchSeries3 } from "../../hooks/getSeries";
 
 // css
-import "../SeriesPage/Series-page.css";
+import "../MoviesPage/movies-page.css";
 
 // configs
 import { imageURL, posterSizes } from "../../configs/tmdbConfig";
