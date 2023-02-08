@@ -1,6 +1,3 @@
-// react
-import { CSSProperties } from "react";
-
 // configs
 import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 
