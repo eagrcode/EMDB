@@ -1,4 +1,5 @@
 // components
+import { FaBackward, FaForward } from "react-icons/fa";
 import { MovieCard } from "./index";
 
 function Row({ data, title, imageURL, imageSize, mediaType }) {
@@ -18,6 +19,8 @@ function Row({ data, title, imageURL, imageSize, mediaType }) {
     <div className="movie-row">
       <h2>{title}</h2>
       <div className="movie-row-inner">{movieRow}</div>
+      <FaBackward size={50} />
+      <FaForward size={10} />
     </div>
   );
 }
