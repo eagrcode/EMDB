@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Home, MoviesPage, SeriesPage, Details, DetailsTV, ResultsPage } from "./Pages";
 
 // Component imports
-import { Navbar, Footer } from "./Components";
+import { Navbar, Footer } from "./components";
 
 // Stylesheet imports
 import "./App.css";
@@ -23,9 +23,9 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  if (import.meta.env.MODE === "production") {
-    console.log = () => {};
-  }
+  // if (import.meta.env.MODE === "production") {
+  //   console.log = () => {};
+  // }
 
   return (
     <QueryClientProvider client={queryClient}>

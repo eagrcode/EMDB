@@ -9,7 +9,7 @@ import { useFetchTopRatedTV } from "../hooks/getTopRatedTV";
 import { imageURL, posterSizes } from "../configs/tmdbConfig";
 
 // component imports
-import { Row } from "./index";
+import { Row } from "./Index";
 
 function MovieRows() {
   // data fetch
