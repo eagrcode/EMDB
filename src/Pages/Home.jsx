@@ -1,4 +1,4 @@
-import { Hero, MovieRows } from "../components";
+import { Hero, MovieRows } from "../Components";
 
 function Home() {
   return (

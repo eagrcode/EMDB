@@ -8,7 +8,7 @@ import "../MoviesPage/movies-page.css";
 import { imageURL, posterSizes } from "../../configs/tmdbConfig";
 
 // Component imports
-import { MovieCard } from "../../components";
+import { MovieCard } from "../../Components";
 
 // libraries
 import MoonLoader from "react-spinners/MoonLoader";

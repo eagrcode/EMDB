@@ -3,7 +3,7 @@ import "../DetailsPage/details-page.css";
 import { useParams } from "react-router";
 import { useItemDetails } from "../../hooks/getDetails";
 
-import { DetailsHero2, Videos, Reviews, SecondaryInfo, Similar } from "../../components";
+import { DetailsHero2, Videos, Reviews, SecondaryInfo, Similar } from "../../Components";
 
 function DetailsTV({ type }) {
   const { id } = useParams();

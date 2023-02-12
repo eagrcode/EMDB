@@ -2,7 +2,7 @@
 import { useState } from "react";
 
 // components
-import { Review } from "../components";
+import { Review } from ".";
 
 function Reviews({ reviews, isLoading, isError }) {
   // state

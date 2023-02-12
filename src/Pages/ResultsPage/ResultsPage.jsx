@@ -12,7 +12,7 @@ import "../ResultsPage/results-page.css";
 import { imageURL, posterSizes } from "../../configs/tmdbConfig";
 
 // components
-import { MovieCard, Search } from "../../components";
+import { MovieCard, Search } from "../../Components";
 
 function ResultsPage() {
   // state
