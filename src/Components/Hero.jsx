@@ -1,6 +1,3 @@
-// react
-import { CSSProperties } from "react";
-
 // configs
 import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 
@@ -91,8 +88,7 @@ function Hero() {
         slidesPerView={1}
         pagination={{ clickable: true }}
         loop={true}
-        autoplay={{ delay: 8000, disableOnInteraction: false }}
-        className="swiper"
+        autoplay={{ delay: 6000, disableOnInteraction: false }}
       >
         {trending.map((item) => (
           <SwiperSlide key={item.id}>
