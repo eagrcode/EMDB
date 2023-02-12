@@ -5,7 +5,7 @@ import { imageURL, backdropSizes, posterSizes } from "../configs/tmdbConfig";
 import MoonLoader from "react-spinners/MoonLoader";
 
 // components
-import { CastRow } from "./Index";
+import { CastRow } from "../components";
 
 function DetailsHero2({ info, isLoading, isError }) {
   // config destructure

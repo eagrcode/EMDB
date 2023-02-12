@@ -8,7 +8,7 @@ import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Home, MoviesPage, SeriesPage, Details, DetailsTV, ResultsPage } from "./Pages";
 
 // Component imports
-import { Navbar, Footer, ScrollToTop } from "./Components";
+import { Navbar, Footer, ScrollToTop } from "./components";
 
 // Stylesheet imports
 import "./App.css";

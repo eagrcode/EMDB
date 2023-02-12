@@ -1,5 +1,5 @@
 // components
-import { Row } from "./Index";
+import { Row } from "../components";
 
 // configs
 import { imageURL, posterSizes } from "../configs/tmdbConfig";
