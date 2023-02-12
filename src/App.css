@@ -337,6 +337,7 @@ nav.is-scrolling {
 .swiper-navigation {
   display: flex;
   justify-content: space-between;
+  display: none;
 }
 
 .swiper-pagination.swiper-pagination-progressbar.swiper-pagination-horizontal {
@@ -508,6 +509,10 @@ footer {
 
   #movie-rows-section {
     padding: 2rem 5rem;
+  }
+
+  .swiper-navigation {
+    display: flex;
   }
 
   footer {
