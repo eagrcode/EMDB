@@ -5,7 +5,7 @@ import { baseURL } from "../configs/tmdbConfig";
 // Fetch popular TV
 const fetchPopularTV = () => {
   return axios
-    .get(`${baseURL}/tv/popular?api_key=${import.meta.env.VITE_API_KEY}&page=1&lang=us`)
+    .get(`${baseURL}/tv/popular?api_key=${import.meta.env.VITE_API_KEY}&page=1&lang=en-us`)
     .then((res) => res.data.results);
 };
 

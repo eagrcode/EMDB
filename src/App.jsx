@@ -13,6 +13,8 @@ import { Navbar, Footer } from "./components";
 // Stylesheet imports
 import "./App.css";
 
+import ScrollToTop from "./scrollToTop";
+
 // Init QueryClient
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,12 +25,13 @@ const queryClient = new QueryClient({
 });
 
 function App() {
-  // if (import.meta.env.MODE === "production") {
-  //   console.log = () => {};
-  // }
+  if (import.meta.env.MODE === "production") {
+    console.log = () => {};
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />

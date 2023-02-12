@@ -100,7 +100,10 @@ function Hero() {
             >
               <div className="hero-overlay-container">
                 <div id="hero-card">
-                  <img src={`${imageURL}${p342}${item?.poster_path}`} />
+                  <img
+                    src={`${imageURL}${p342}${item?.poster_path}`}
+                    alt={`${item?.title}-poster`}
+                  />
                 </div>
                 <div className="hero-text-container">
                   <div>
