@@ -13,3 +13,4 @@ export { default as SecondaryInfo } from "./SecondaryInfo";
 export { default as Similar } from "./Similar";
 export { default as Search } from "./Search";
 export { default as Footer } from "./Footer";
+export { default as ScrollToTop } from "./ScrollToTop";
