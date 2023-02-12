@@ -13,6 +13,8 @@ import { Navbar, Footer } from "./Components";
 // Stylesheet imports
 import "./App.css";
 
+import ScrollToTop from "./scrollToTop";
+
 // Init QueryClient
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -29,6 +31,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navbar />}>
           <Route index element={<Home />} />
