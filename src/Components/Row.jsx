@@ -1,5 +1,5 @@
 // components
-import { MovieCard } from "./Index";
+import { MovieCard } from "./index";
 
 // libraries
 import { Swiper, SwiperSlide } from "swiper/react";
