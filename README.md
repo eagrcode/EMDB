@@ -4,6 +4,8 @@ A movie database clone using TMDB api.
 
 The purpose of this project, is to allow the user to find information on a range of Movies and TV Shows.
 
+[EMDB](https://emdb-eagrcode.netlify.app/ "EMDB")
+
 ## Features
 
 - Browse trending and popular Movies and TV Shows
